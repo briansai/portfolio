@@ -1,0 +1,23 @@
+export const categories = [
+  { item: 'About',
+    icon: '',
+  },
+  { item: 'Experience',
+    icon: '',
+  },
+  { item: 'Skills',
+    icon: '',
+  },
+  { item: 'Projects',
+    icon: '',
+  },
+  { item: 'Education',
+    icon: '',
+  },
+  { item: 'Contact',
+    icon: '',
+  },
+  { item: 'Resume',
+    icon: '',
+  }
+];
