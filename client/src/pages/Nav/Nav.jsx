@@ -10,6 +10,7 @@ export default class Nav extends Component {
           const { item, icon } = category;
           return (
             <div className="nav-category">
+              <i class="material-icons">{icon}</i>
               {item}
             </div>
           )
