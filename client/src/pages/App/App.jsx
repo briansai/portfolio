@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import Nav from '../Nav/Nav.jsx'
+import Main from '../Main/Main.jsx';
+import Nav from '../Nav/Nav.jsx';
+import './App.scss';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,13 +10,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <div>
-        </div>
+      <div className="app-font">
         <div>
           <Nav />
         </div>
-      </Fragment>
+        <div>
+          <Main />
+        </div>
+      </div>
     );
   }
 }

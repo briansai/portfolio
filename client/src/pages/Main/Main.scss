@@ -1,0 +1,33 @@
+.main-container {
+  margin-left: 15%;
+
+  .main-categories {
+    .category-header {
+      height: 80px;
+      font-size: 2.5em;
+      padding-left: 5%;
+      padding-top: 3%;
+      background-color: green;
+    }
+
+    .category-card-container {
+      text-align: center;
+      padding: 5%;
+      width: 90%;
+
+      .category-card {
+        height: 500px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+        transition: 0.5s;
+      }
+  
+      .category-card:hover {
+        box-shadow: 0 8px 20px 0 rgba(0,0,0,0.4);
+      }
+    }
+
+    // .container {
+
+    // }
+  }
+}
