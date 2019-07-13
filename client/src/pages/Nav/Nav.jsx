@@ -8,11 +8,11 @@ export default class Nav extends Component {
       <Fragment>
         <div className="nav-container">
           <div className="name-container">
-            <div className="nav-occupation">
-              FullStack Developer
-            </div>
             <div className="nav-name">
               Brian Sai
+            </div>
+            <div className="nav-occupation">
+              FullStack Developer
             </div>
           </div>
           <div>
@@ -20,13 +20,12 @@ export default class Nav extends Component {
               const { item, icon } = category;
               return (
                 <div className="nav-category">
-                  <span>
-                    <i class="material-icons">{icon}</i>
-                  </span>
+                  {/* <span> */}
+                    <i class="material-icons">{icon}</i> {item}
+                  {/* </span> */}
                   {/* include description css */}
-                  <span className="nav-description">
-                    {item}
-                  </span>
+                  {/* <span className="nav-description">
+                  </span> */}
                 </div>
               )
             })}
