@@ -14,6 +14,11 @@
       height: 500px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       transition: 0.2s; }
+      .main-container .main-categories .category-card-container .category-card .contact-description {
+        padding-top: 3%;
+        font-size: 2.5rem; }
+      .main-container .main-categories .category-card-container .category-card .contact-info {
+        padding: 13%; }
     .main-container .main-categories .category-card-container .category-card:hover {
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4); }
 
@@ -43,6 +48,12 @@
   .nav-container .nav-category:hover {
     color: gray;
     cursor: pointer; }
+
+a {
+  text-decoration: none; }
+
+a:visited {
+  color: white; }
 
 .app-font {
   font-family: sans-serif; }

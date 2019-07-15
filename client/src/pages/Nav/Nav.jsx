@@ -19,14 +19,18 @@ export default class Nav extends Component {
             {categories.map(category => {
               const { item, icon } = category;
               return (
-                <div className="nav-category">
-                  {/* <span> */}
-                    <i class="material-icons">{icon}</i> {item}
-                  {/* </span> */}
-                  {/* include description css */}
-                  {/* <span className="nav-description">
-                  </span> */}
-                </div>
+                <Fragment>
+                  <a href={`#${item}`}>
+                    <div className="nav-category">
+                      <span>
+                        <i class="material-icons">{icon}</i> {item}
+                      </span>
+                      {/* // include description css */}
+                      <span className="nav-description">
+                      </span>
+                    </div>
+                  </a>
+                </Fragment>
               )
             })}
           </div>
