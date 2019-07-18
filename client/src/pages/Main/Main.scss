@@ -27,6 +27,12 @@
 
         .contact-info {
           padding: 13%;
+
+          .message-input {
+            input {
+              height: 160px;
+            }
+          }
         }
       }
 

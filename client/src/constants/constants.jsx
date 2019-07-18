@@ -1,4 +1,4 @@
-export const categories = [
+export const navCategories = [
   { item: 'About',
     icon: 'person',
   },
@@ -21,3 +21,9 @@ export const categories = [
     icon: 'list_alt',
   }
 ];
+
+export const emailItems = () => [
+  { name: 'Name' },
+  { email: 'Email' },
+  { message: 'Message' },
+]

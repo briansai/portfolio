@@ -19,6 +19,8 @@
         font-size: 2.5rem; }
       .main-container .main-categories .category-card-container .category-card .contact-info {
         padding: 13%; }
+        .main-container .main-categories .category-card-container .category-card .contact-info .message-input input {
+          height: 160px; }
     .main-container .main-categories .category-card-container .category-card:hover {
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4); }
 

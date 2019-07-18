@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { categories } from '../../constants/constants.jsx';
+import { navCategories, emailItems } from '../../constants/constants.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -13,36 +13,59 @@ export default class Main extends Component {
     }
   }
 
-  handleName = e => {
-    this.setState({ nameInput: e.target.value });
+  handleInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value })
   }
 
-  handleEmail = e => {
-    this.setState({ emailInput: e.target.value });
-  }
-
-  handleMessage = e => {
-    this.setState({ messageInput: e.target.value });
+  handleSubmit = event => {
+    const { nameInput, emailInput, messageInput } = this.state
+    console.log(nameInput, emailInput,  messageInput);
   }
 
   renderDescription = item => {
     if (item === 'Contact') {
+      const inputs = [
+        {
+          text: 'Name:',
+          name: 'nameInput',
+        },
+        {
+          text: 'Email',
+          name: 'emailInput',
+        },
+        {
+          text: 'Message',
+          name: 'messageInput',
+        }
+      ]
+
       return (
         <Fragment>
           <div className="contact-description">
-            If you'd like to connect, please reach out to me.
+            I'd love to connect with you. Please feel free to reach out to me and send me an email! Thanks!
           </div>
           <div className="contact-info">
-            <div>
-              Name: <input onChnage={this.handleName}/>
-            </div>
-            <div>
-              Email: <input onChange={this.handleEmail}/>
-            </div>
-            <div>
-              Message: <textarea onChange={this.handleMessage}/>
-            </div>
-            <button>Send</button>
+            <form>
+              {inputs.map(input => {
+                const { text, name } = input;
+                return (
+                  <Fragment>
+                    <label>
+                      {text}
+                      <input
+                        type="text"
+                        name={name}
+                        onChange={this.handleInputChange}
+                      />
+                    </label>
+                    <br />
+                  </Fragment>
+                )
+              })}
+              <button onClick={this.handleSubmit}>Send</button>
+            </form>
           </div>
         </Fragment>
       )
@@ -54,7 +77,7 @@ export default class Main extends Component {
       <Fragment>
         <div className="main-container">
           <div className="main-categories">
-            {categories.map(category => {
+            {navCategories.map(category => {
               const { item } = category;
               return (
                 <Fragment>
