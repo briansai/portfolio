@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { navCategories, emailItems } from '../../constants/constants.jsx';
+import { navCategories } from '../../constants/constants.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -70,6 +70,16 @@ export default class Main extends Component {
         </Fragment>
       )
     }
+
+    return (
+      <Fragment>
+        <div className="card-description">
+          
+        </div>
+        <div className="card-info">
+        </div>
+      </Fragment>
+    )
   }
 
   render () {

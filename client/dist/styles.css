@@ -14,6 +14,11 @@
       height: 500px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       transition: 0.2s; }
+      .main-container .main-categories .category-card-container .category-card .card-description {
+        height: 50px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+        padding: 10px;
+        margin: 0 40px; }
       .main-container .main-categories .category-card-container .category-card .contact-description {
         padding-top: 3%;
         font-size: 2.5rem; }

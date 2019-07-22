@@ -21,9 +21,3 @@ export const navCategories = [
     icon: 'list_alt',
   }
 ];
-
-export const emailItems = () => [
-  { name: 'Name' },
-  { email: 'Email' },
-  { message: 'Message' },
-]
