@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { navCategories } from '../../constants/constants.jsx';
+import { categories } from '../../constants/constants.jsx';
 import './Nav.scss';
 
 export default class Nav extends Component {
@@ -16,7 +16,7 @@ export default class Nav extends Component {
             </div>
           </div>
           <div>
-            {navCategories.map(category => {
+            {categories.map(category => {
               const { item, icon } = category;
               return (
                 <Fragment>

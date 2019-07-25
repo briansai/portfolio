@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { navCategories } from '../../constants/constants.jsx';
+import { categories } from '../../constants/constants.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -24,7 +24,8 @@ export default class Main extends Component {
     console.log(nameInput, emailInput,  messageInput);
   }
 
-  renderDescription = item => {
+  renderDescription = category => {
+    const {item, information} = category;
     if (item === 'Contact') {
       const inputs = [
         {
@@ -43,40 +44,80 @@ export default class Main extends Component {
 
       return (
         <Fragment>
-          <div className="contact-description">
-            I'd love to connect with you. Please feel free to reach out to me and send me an email! Thanks!
+          <div className="category-card">
+            <div className="category-container">
+              <div className="contact-description">
+                I'd love to connect with you. Please feel free to reach out to me and send me an email! Thanks!
+              </div>
+              <div className="contact-info">
+                <form>
+                  {inputs.map(input => {
+                    const { text, name } = input;
+                    return (
+                      <Fragment>
+                        <label>
+                          {text}
+                          <input
+                            type="text"
+                            name={name}
+                            onChange={this.handleInputChange}
+                          />
+                        </label>
+                        <br />
+                      </Fragment>
+                    )
+                  })}
+                  <button onClick={this.handleSubmit}>Send</button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="contact-info">
-            <form>
-              {inputs.map(input => {
-                const { text, name } = input;
-                return (
-                  <Fragment>
-                    <label>
-                      {text}
-                      <input
-                        type="text"
-                        name={name}
-                        onChange={this.handleInputChange}
-                      />
-                    </label>
-                    <br />
-                  </Fragment>
-                )
-              })}
-              <button onClick={this.handleSubmit}>Send</button>
-            </form>
-          </div>
+        </Fragment>
+      )
+    } else if (item === 'Experience') {
+      return (
+        <Fragment>
+          {information.map(info => {
+            console.log(info)
+            const { company, title, experiences } = info;
+            return(
+              <div className="category-card">
+                <div className="category-container">
+                  <div className="card-description">
+                    <span className="logo">
+                      logo
+                    </span>
+                    <span className="company">
+                      {company}
+                    </span>
+                    <span className="experience">
+                      {title}
+                    </span>
+                  </div>
+                  <ul className="card-info">
+                    {experiences.map(experience => (
+                      <li>
+                        {experience} <br />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )
+          })}
         </Fragment>
       )
     }
 
     return (
       <Fragment>
-        <div className="card-description">
-          
-        </div>
-        <div className="card-info">
+        <div className="category-card">
+          <div className="category-container">
+            <div className="card-description">
+            </div>
+            <div className="card-info">
+            </div>
+          </div>
         </div>
       </Fragment>
     )
@@ -87,7 +128,7 @@ export default class Main extends Component {
       <Fragment>
         <div className="main-container">
           <div className="main-categories">
-            {navCategories.map(category => {
+            {categories.map(category => {
               const { item } = category;
               return (
                 <Fragment>
@@ -95,11 +136,7 @@ export default class Main extends Component {
                     {item}
                   </div>
                   <div className="category-card-container">
-                    <div className="category-card">
-                      <div className="category-container">
-                        {this.renderDescription(item)}
-                      </div>
-                    </div>
+                    {this.renderDescription(category)}
                   </div>
                 </Fragment>
               )
