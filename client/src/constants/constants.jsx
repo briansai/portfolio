@@ -1,20 +1,20 @@
-import javascriptSVG from '../images/skills/language/javascript.svg';
-import reactSVG from '../images/skills/frontend/react.svg';
-import reduxSVG from '../images/skills/frontend/redux.svg';
-import reactstrapSVG from '../images/skills/frontend/reactstrap.svg';
-import sassSVG from '../images/skills/frontend/sass.svg';
-import materialSVG from '../images/skills/frontend/material.svg';
-import htmlSVG from '../images/skills/frontend/html5.svg';
-import css3SVG from '../images/skills/frontend/css3.svg';
-import nodeSVG from '../images/skills/backend/node.svg';
-import expressSVG from '../images/skills/backend/express.svg';
-import mongodbSVG from '../images/skills/backend/mongodb.svg';
-import mysqlSVG from '../images/skills/backend/mysql.svg';
-import redisSVG from '../images/skills/backend/redis.svg';
-import npmSVG from '../images/skills/packageManager/npm.svg';
-import yarnSVG from '../images/skills/packageManager/yarn.svg';
-import tubiSVG from '../images/experience/tubi.svg';
-import mcmillanSVG from '../images/experience/mcmillan.svg';
+import javascript from '../images/skills/language/javascript.png';
+import react from '../images/skills/frontend/react.png';
+import redux from '../images/skills/frontend/redux.png';
+import reactstrap from '../images/skills/frontend/reactstrap.png';
+import sass from '../images/skills/frontend/sass.png';
+import material from '../images/skills/frontend/material.png';
+import html from '../images/skills/frontend/html5.png';
+import css3 from '../images/skills/frontend/css3.png';
+import node from '../images/skills/backend/node.png';
+import express from '../images/skills/backend/express.png';
+import mongodb from '../images/skills/backend/mongodb.png';
+import mysql from '../images/skills/backend/mysql.png';
+import redis from '../images/skills/backend/redis.png';
+import npm from '../images/skills/packageManager/npm.png';
+import yarn from '../images/skills/packageManager/yarn.png';
+import tubi from '../images/experience/tubi.png';
+import mcmillan from '../images/experience/mcmillan.png';
 
 export const categories = [
   { item: 'About',
@@ -25,7 +25,7 @@ export const categories = [
     icon: 'work',
     information:[
       {
-        logo: tubiSVG,
+        logo: tubi,
         company: 'Tubi',
         title: 'Tech Ops Engineer',
         experiences: [
@@ -35,7 +35,7 @@ export const categories = [
         ],
       },
       {
-        logo: mcmillanSVG,
+        logo: mcmillan,
         company: 'McMillan Electric',
         title: 'Project Engineer',
         experiences: [
@@ -54,69 +54,69 @@ export const categories = [
       language: [
         {
           name: 'Javascript',
-          logo: javascriptSVG
+          logo: javascript
         }
       ],
       frontend: [
         {
           name: 'React',
-          logo: reactSVG,
+          logo: react,
         },
         {
           name: 'Redux',
-          logo: reduxSVG,
+          logo: redux,
         },
         {
           name: 'Reactstrap',
-          logo: reactstrapSVG,
+          logo: reactstrap,
         },
         {
           name: 'Sass',
-          logo: sassSVG,
+          logo: sass,
         },
         {
           name: 'Material-UI',  
-          logo: materialSVG,
+          logo: material,
         },
         {
           name: 'HTMl5',
-          logo: htmlSVG,
+          logo: html,
         },
         {
           name: 'CSS3',
-          logo: css3SVG,
+          logo: css3,
         },
       ],
       backend: [
         {
           name: 'Node',
-          logo: nodeSVG,
+          logo: node,
         },
         {
           name: 'Express',
-          logo: expressSVG,
+          logo: express,
         },
         {
           name: 'MySQL',
-          logo: mysqlSVG,
+          logo: mysql,
         },
         {
           name: 'MongoDB',
-          logo: mongodbSVG,
+          logo: mongodb,
         },
         {
           name: 'Redis',
-          logo: redisSVG,
+          logo: redis,
         },
       ],
       packageManager : [
         {
           name: 'NPM',
-          logo: npmSVG,
+          logo: npm,
         },
         {
           name: 'yarn',
-          logo: yarnSVG,
+          logo: yarn,
         }
       ]
     },

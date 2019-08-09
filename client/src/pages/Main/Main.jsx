@@ -85,7 +85,7 @@ export default class Main extends Component {
               <div className="category-card">
                 <div className="card-description">
                   <span className="logo">
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt="logo" width="40" height="40" />
                   </span>
                   <span className="company">
                     <strong>{company}</strong>
@@ -122,7 +122,7 @@ export default class Main extends Component {
                   {values.map(tech => (
                     <div className="skill-item">
                       <div>
-                        <img src={tech.logo} />
+                        <img src={tech.logo} width="96" height="96"/>
                       </div>
                       <div>
                         {tech.name}
