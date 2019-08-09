@@ -13,6 +13,8 @@ export default class Main extends Component {
     }
   }
 
+  capitalize = word => word[0].toUpperCase() + word.slice(1);
+
   handleInputChange = event => {
     const { name, value } = event.target;
 
@@ -78,45 +80,68 @@ export default class Main extends Component {
       return (
         <Fragment>
           {information.map(info => {
-            console.log(info)
-            const { company, title, experiences } = info;
-            return(
+            const { logo, company, title, experiences } = info;
+            return (
               <div className="category-card">
-                <div className="category-container">
-                  <div className="card-description">
-                    <span className="logo">
-                      logo
-                    </span>
-                    <span className="company">
-                      {company}
-                    </span>
-                    <span className="experience">
-                      {title}
-                    </span>
-                  </div>
-                  <ul className="card-info">
-                    {experiences.map(experience => (
-                      <li>
-                        {experience} <br />
-                      </li>
-                    ))}
-                  </ul>
+                <div className="card-description">
+                  <span className="logo">
+                    <img src={logo} alt="logo" />
+                  </span>
+                  <span className="company">
+                    <strong>{company}</strong>
+                  </span>
+                  <span className="title">
+                    {title}
+                  </span>
                 </div>
+                <ul className="card-info">
+                  {experiences.map(experience => (
+                    <li className="card-item">
+                      {experience} <br />
+                    </li>
+                  ))}
+                </ul>
               </div>
             )
           })}
         </Fragment>
       )
-    }
+    } else if (item === 'Skills') {
+      const categoryKeys = Object.keys(information);
+      const categoryValues = Object.values(information);
+      return (
+        <div>
+          {categoryValues.map((values, index) => {
+            const categoryName = categoryKeys[index] === 'packageManager' ? 'Package Manager' : categoryKeys[index];
+            return (
+              <div className="category-card">
+                <div className="card-description">
+                  {this.capitalize(categoryName)}
+                </div>
+                <span className="card-skills">
+                  {values.map(tech => (
+                    <div className="skill-item">
+                      <div>
+                        <img src={tech.logo} />
+                      </div>
+                      <div>
+                        {tech.name}
+                      </div>
+                    </div>
+                  ))}
+                </span>
+              </div>
+            )
+            })}
+          </div>
+        )}
 
     return (
       <Fragment>
         <div className="category-card">
-          <div className="category-container">
-            <div className="card-description">
-            </div>
-            <div className="card-info">
-            </div>
+          <div className="card-description">
+          </div>
+          <div className="card-info">
           </div>
         </div>
       </Fragment>

@@ -2,3 +2,4 @@ node_modules
 .eslintrc
 .babelrc
 package-lock.json
+package.json
