@@ -34,10 +34,7 @@
           padding-bottom: 20px;
           text-align: center; }
       .main-container .main-categories .category-card-container .category-card .card-info {
-        padding-top: 20px;
-        padding-left: 60px;
-        padding-right: 40px;
-        padding-bottom: 40px; }
+        padding: 20px 40px 40px 60px; }
         .main-container .main-categories .category-card-container .category-card .card-info .card-item {
           line-height: 1.5; }
       .main-container .main-categories .category-card-container .category-card .contact-description {
@@ -55,13 +52,13 @@
   width: 15%;
   position: fixed;
   z-index: 1;
-  background-color: #111;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.6); }
   .nav-container .name-container {
     text-align: center;
-    color: white;
+    color: black;
     padding: 50px 6px;
-    border-bottom: 1px solid white; }
+    border-bottom: 1px solid black; }
     .nav-container .name-container .nav-occupation {
       font-size: 16px; }
     .nav-container .name-container .nav-name {
@@ -71,18 +68,20 @@
     padding: 16px 8px 6px 16px;
     text-decoration: none;
     font-size: 20px;
-    color: white;
+    color: black;
     display: block; }
   .nav-container .nav-category:hover {
     color: gray;
+    padding-left: 20px;
+    border-left: 4px solid black;
     cursor: pointer; }
 
 a {
   text-decoration: none; }
 
 a:visited {
-  color: white; }
+  color: black; }
 
-.app-font {
+.app {
   font-family: sans-serif; }
 

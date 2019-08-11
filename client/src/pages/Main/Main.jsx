@@ -49,7 +49,6 @@ export default class Main extends Component {
           <div className="category-card">
             <div className="category-container">
               <div className="contact-description">
-                I'd love to connect with you. Please feel free to reach out to me and send me an email! Thanks!
               </div>
               <div className="contact-info">
                 <form>
@@ -122,7 +121,7 @@ export default class Main extends Component {
                   {values.map(tech => (
                     <div className="skill-item">
                       <div>
-                        <img src={tech.logo} width="96" height="96"/>
+                        <img src={tech.logo} width="75" height="75"/>
                       </div>
                       <div>
                         {tech.name}

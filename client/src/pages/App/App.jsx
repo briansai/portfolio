@@ -10,7 +10,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app-font">
+      <div className="app">
         <div>
           <Nav />
         </div>
