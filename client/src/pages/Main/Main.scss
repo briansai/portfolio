@@ -44,7 +44,7 @@
           display: grid;
           grid-template-columns: repeat(auto-fill, 160px)  ;
           grid-gap: 10px;
-          padding: 20px 40px;
+          padding: 20px 10px;
 
           .skill-item {
             padding-bottom: 20px;
@@ -61,17 +61,23 @@
         }
         
         .contact-description {
-          padding-top: 3%;
           font-size: 2.5rem;
         }
 
         .contact-info {
-          padding: 13%;
-
-          .message-input {
-            input {
-              height: 160px;
-            }
+          text-align: center;
+          .contact-item {
+            padding: 40px;
+            display: inline-block;
+            text-align: center;
+            font-size: 36px;
+            position: relative;
+            top: 0;
+            transition: top ease 0.5s;
+          }
+          
+          .contact-item:hover {
+            top: -10px;
           }
         }
         margin: 50px 0;

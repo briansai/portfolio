@@ -15,6 +15,9 @@ import npm from '../images/skills/packageManager/npm.png';
 import yarn from '../images/skills/packageManager/yarn.png';
 import tubi from '../images/experience/tubi.png';
 import mcmillan from '../images/experience/mcmillan.png';
+import email from '../images/contact/email.png';
+import linkedin from '../images/contact/linkedin.png';
+import github from '../images/contact/github.png';
 
 export const categories = [
   { item: 'About',
@@ -142,7 +145,23 @@ export const categories = [
   },
   { item: 'Contact',
     icon: 'mail_outline',
-    information: [],
+    information: [
+      {
+        text: 'email',
+        icon: email,
+        link: 'mailto: brianwsai@gmail.com',
+      },
+      {
+        text: 'linkedIn',
+        icon: linkedin,
+        link: 'https://www.linkedin.com/in/briansai',
+      },
+      {
+        text: 'github',
+        icon: github,
+        link: 'https://www.github.com/briansai',
+      }
+    ],
   },
   { item: 'Resume',
     icon: 'list_alt',

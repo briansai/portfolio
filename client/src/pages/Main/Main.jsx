@@ -29,21 +29,6 @@ export default class Main extends Component {
   renderDescription = category => {
     const {item, information} = category;
     if (item === 'Contact') {
-      const inputs = [
-        {
-          text: 'Name:',
-          name: 'nameInput',
-        },
-        {
-          text: 'Email',
-          name: 'emailInput',
-        },
-        {
-          text: 'Message',
-          name: 'messageInput',
-        }
-      ]
-
       return (
         <Fragment>
           <div className="category-card">
@@ -51,25 +36,22 @@ export default class Main extends Component {
               <div className="contact-description">
               </div>
               <div className="contact-info">
-                <form>
-                  {inputs.map(input => {
-                    const { text, name } = input;
-                    return (
-                      <Fragment>
-                        <label>
-                          {text}
-                          <input
-                            type="text"
-                            name={name}
-                            onChange={this.handleInputChange}
-                          />
-                        </label>
-                        <br />
-                      </Fragment>
-                    )
-                  })}
-                  <button onClick={this.handleSubmit}>Send</button>
-                </form>
+                {information.map(info=> {
+                  const { icon, text, link } = info;
+                  const target = text === 'email' ? null : "_blank";
+                  return (
+                    <span className="items">
+                      <a href={link} className="contact-item" target={target}>
+                        <div classNAme="image">
+                          <img src={icon} width="110" height="96"/>
+                        </div>
+                        <div className="text">
+                          {this.capitalize(text)}
+                        </div>
+                      </a>
+                    </span>
+                  )
+                })}
               </div>
             </div>
           </div>
