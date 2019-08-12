@@ -1,3 +1,19 @@
 .app {
   font-family: sans-serif;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+.app::after {
+  background: url('../../linen.png');
+  content: "";
+  opacity: 0.15;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1; 
 }

@@ -113,9 +113,10 @@ export default class Main extends Component {
                 </span>
               </div>
             )
-            })}
-          </div>
-        )}
+          })}
+        </div>
+      )
+    }
 
     return (
       <Fragment>
@@ -136,7 +137,7 @@ export default class Main extends Component {
           <div className="main-categories">
             {categories.map(category => {
               const { item } = category;
-              return (
+              const section = item !== 'Resume' ? (
                 <Fragment>
                   <div className="category-header" id={item}>
                     {item}
@@ -145,6 +146,12 @@ export default class Main extends Component {
                     {this.renderDescription(category)}
                   </div>
                 </Fragment>
+              ) : (
+                null
+              )
+
+              return (
+                section
               )
             })}
           </div>
