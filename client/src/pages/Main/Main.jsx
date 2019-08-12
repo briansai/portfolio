@@ -42,10 +42,10 @@ export default class Main extends Component {
                   return (
                     <span className="items">
                       <a href={link} className="contact-item" target={target}>
-                        <div classNAme="image">
+                        <div>
                           <img src={icon} width="110" height="96"/>
                         </div>
-                        <div className="text">
+                        <div>
                           {this.capitalize(text)}
                         </div>
                       </a>

@@ -8,6 +8,10 @@
   transition: 0.2s;
 }
 
+a {
+  color: inherit;
+}
+
 .main-container {
   margin-left: 15%;
 
@@ -66,6 +70,7 @@
 
         .contact-info {
           text-align: center;
+
           .contact-item {
             padding: 40px;
             display: inline-block;
