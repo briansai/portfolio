@@ -51,7 +51,7 @@ a {
           font-size: 36px;
           position: relative;
           top: 0;
-          transition: top ease 0.5s; }
+          transition: top ease 0.2s; }
         .main-container .main-categories .category-card-container .category-card .contact-info .contact-item:hover {
           top: -10px; }
     .main-container .main-categories .category-card-container .category-card:hover {
