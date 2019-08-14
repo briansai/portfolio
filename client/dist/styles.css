@@ -12,9 +12,15 @@ a {
   .main-container .main-categories .category-card-container {
     padding: 0 5%;
     width: 90%; }
+    .main-container .main-categories .category-card-container .about-header {
+      padding-left: 20px;
+      margin: 50px;
+      border-left: 5px solid black;
+      font-size: 32px; }
     .main-container .main-categories .category-card-container .category-card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       transition: 0.2s;
+      background-color: white;
       margin: 50px 0; }
       .main-container .main-categories .category-card-container .category-card .card-description {
         height: 50px;
@@ -80,6 +86,11 @@ a {
     font-size: 20px;
     color: black;
     display: block; }
+    .nav-container .nav-category .material-icons {
+      font-size: 30px; }
+    .nav-container .nav-category .nav-description {
+      padding-left: 10px;
+      margin-bottom: 50px; }
   .nav-container .nav-category:hover {
     color: gray;
     padding-left: 20px;

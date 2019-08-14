@@ -5,32 +5,37 @@ import './Main.scss';
 export default class Main extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      nameInput: '',
-      emailInput: '',
-      messageInput: '',
-    }
   }
 
   capitalize = word => word[0].toUpperCase() + word.slice(1);
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-
-    this.setState({ [name]: value })
-  }
-
-  handleSubmit = event => {
-    const { nameInput, emailInput, messageInput } = this.state
-    console.log(nameInput, emailInput,  messageInput);
-  }
-
   renderDescription = category => {
     const {item, information} = category;
-    if (item === 'Contact') {
+    if (item === 'intro') {
+      return (
+        <div className="intro">
+          <img src={information.intro} width="100%" height="auto"/>
+        </div>
+      )
+    } else if (item === 'About') {
+      return(
+      <Fragment>
+        <div className="category-card-container">
+        <div className="about-container">
+          <div className="about-header">
+            Motivated, self-driven software engineer that has a passion to learn new technologies, create scalable applications, and scale large data efficiently.
+          </div>
+          <div className="about-text">
+            
+          </div>
+        </div>
+        </div>
+      </Fragment>
+      )
+    } else if (item === 'Contact') {
       return (
         <Fragment>
+          <div className="category-card-container">
           <div className="category-card">
             <div className="category-container">
               <div className="contact-description">
@@ -55,6 +60,7 @@ export default class Main extends Component {
               </div>
             </div>
           </div>
+          </div>
         </Fragment>
       )
     } else if (item === 'Experience') {
@@ -63,6 +69,7 @@ export default class Main extends Component {
           {information.map(info => {
             const { logo, company, title, experiences } = info;
             return (
+              <div className="category-card-container">
               <div className="category-card">
                 <div className="card-description">
                   <span className="logo">
@@ -83,6 +90,7 @@ export default class Main extends Component {
                   ))}
                 </ul>
               </div>
+              </div>
             )
           })}
         </Fragment>
@@ -95,6 +103,7 @@ export default class Main extends Component {
           {categoryValues.map((values, index) => {
             const categoryName = categoryKeys[index] === 'packageManager' ? 'Package Manager' : categoryKeys[index];
             return (
+              <div className="category-card-container">
               <div className="category-card">
                 <div className="card-description">
                   {this.capitalize(categoryName)}
@@ -112,6 +121,7 @@ export default class Main extends Component {
                   ))}
                 </span>
               </div>
+              </div>
             )
           })}
         </div>
@@ -120,11 +130,13 @@ export default class Main extends Component {
 
     return (
       <Fragment>
+        <div className="category-card-container">
         <div className="category-card">
           <div className="card-description">
           </div>
           <div className="card-info">
           </div>
+        </div>
         </div>
       </Fragment>
     )
@@ -139,10 +151,14 @@ export default class Main extends Component {
               const { item } = category;
               const section = item !== 'Resume' ? (
                 <Fragment>
-                  <div className="category-header" id={item}>
+                  {item !== 'intro' ? (
+                    <div className="category-header" id={item}>
                     {item}
                   </div>
-                  <div className="category-card-container">
+                  ) : (
+                    null
+                  )}
+                  <div>
                     {this.renderDescription(category)}
                   </div>
                 </Fragment>

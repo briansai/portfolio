@@ -20,16 +20,20 @@ export default class Nav extends Component {
               const { item, icon } = category;
               return (
                 <Fragment>
-                  <a href={`#${item}`}>
+                  {item !== 'intro' ? (
+                    <a href={`#${item}`}>
                     <div className="nav-category">
                       <span>
-                        <i class="material-icons">{icon}</i> {item}
+                        <i className="material-icons">{icon}</i> 
                       </span>
-                      {/* // include description css */}
                       <span className="nav-description">
+                        {item}
                       </span>
                     </div>
                   </a>
+                  ) : (
+                    null
+                  )}
                 </Fragment>
               )
             })}

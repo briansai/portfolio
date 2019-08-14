@@ -18,8 +18,13 @@ import mcmillan from '../images/experience/mcmillan.png';
 import email from '../images/contact/email.png';
 import linkedin from '../images/contact/linkedin.png';
 import github from '../images/contact/github.png';
+import intro from '../images/intro/intro.png';
 
 export const categories = [
+  {
+    item: 'intro',
+    information: { intro },
+  },
   { item: 'About',
     icon: 'person',
     information: [],

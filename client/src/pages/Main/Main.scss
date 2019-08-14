@@ -6,6 +6,7 @@
 @mixin card-shadow {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   transition: 0.2s;
+          background-color: white;
 }
 
 a {
@@ -26,6 +27,14 @@ a {
 
     .category-card-container {
       @include card;
+
+      .about-header {
+        padding-left: 20px;
+        margin: 50px;
+        border-left: 5px solid black;
+        font-size: 32px;
+      }
+
       .category-card {
         @include card-shadow;
         .card-description {
