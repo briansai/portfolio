@@ -14,7 +14,6 @@ export default class Main extends Component {
     if (item === 'intro') {
       return (
         <div className="intro">
-          <img src={information.intro} width="100%" height="auto"/>
         </div>
       )
     } else if (item === 'About') {
