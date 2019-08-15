@@ -19,11 +19,12 @@ import email from '../images/contact/email.png';
 import linkedin from '../images/contact/linkedin.png';
 import github from '../images/contact/github.png';
 import intro from '../images/intro/intro.png';
+import self from '../images/intro/self.png';
 
 export const categories = [
   {
-    item: 'intro',
-    information: { intro },
+    item: 'Intro',
+    information: { intro, self },
   },
   { item: 'About',
     icon: 'person',

@@ -11,7 +11,7 @@ export default class Main extends Component {
 
   renderDescription = category => {
     const {item, information} = category;
-    if (item === 'intro') {
+    if (item === 'Intro') {
       return (
         <div className="intro">
         </div>
@@ -150,7 +150,7 @@ export default class Main extends Component {
               const { item } = category;
               const section = item !== 'Resume' ? (
                 <Fragment>
-                  {item !== 'intro' ? (
+                  {item !== 'Intro' ? (
                     <div className="category-header" id={item}>
                     {item}
                   </div>

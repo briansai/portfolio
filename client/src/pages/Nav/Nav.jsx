@@ -8,6 +8,9 @@ export default class Nav extends Component {
       <Fragment>
         <div className="nav-container">
           <div className="name-container">
+            <div className="nav-image">
+              <img src={categories[0].information.self} alt="Brian Sai"/>
+            </div>
             <div className="nav-name">
               Brian Sai
             </div>
@@ -20,7 +23,7 @@ export default class Nav extends Component {
               const { item, icon } = category;
               return (
                 <Fragment>
-                  {item !== 'intro' ? (
+                  {item !== 'Intro' ? (
                     <a href={`#${item}`}>
                     <div className="nav-category">
                       <span>

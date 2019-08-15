@@ -4,10 +4,10 @@ a {
 .main-container {
   margin-left: 15%; }
   .main-container .main-categories .intro {
-    background: url(images/intro.png) no-repeat top center/cover;
-    position: relative;
+    background: url(images/intro.png) top center/cover no-repeat;
     width: 100%;
-    height: 100vh; }
+    height: 100vh;
+    position: relative; }
   .main-container .main-categories .category-header {
     height: 80px;
     font-size: 2.5em;
@@ -64,7 +64,8 @@ a {
           top: 0;
           transition: top ease 0.2s; }
         .main-container .main-categories .category-card-container .category-card .contact-info .contact-item:hover {
-          top: -10px; }
+          top: -10px;
+          border-bottom: 5px solid black; }
     .main-container .main-categories .category-card-container .category-card:hover {
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4); }
 
@@ -78,8 +79,11 @@ a {
   .nav-container .name-container {
     text-align: center;
     color: black;
-    padding: 50px 6px;
+    padding: 20px 6px;
     border-bottom: 1px solid black; }
+    .nav-container .name-container .nav-image img {
+      width: 80%;
+      border-radius: 50%; }
     .nav-container .name-container .nav-occupation {
       font-size: 16px; }
     .nav-container .name-container .nav-name {
