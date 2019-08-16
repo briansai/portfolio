@@ -36,27 +36,23 @@ export default class Main extends Component {
         <Fragment>
           <div className="category-card-container">
           <div className="category-card">
-            <div className="category-container">
-              <div className="contact-description">
-              </div>
-              <div className="contact-info">
-                {information.map(info=> {
-                  const { icon, text, link } = info;
-                  const target = text === 'email' ? null : "_blank";
-                  return (
-                    <span className="items">
-                      <a href={link} className="contact-item" target={target}>
-                        <div>
-                          <img src={icon} width="110" height="96"/>
-                        </div>
-                        <div>
-                          {this.capitalize(text)}
-                        </div>
-                      </a>
-                    </span>
-                  )
-                })}
-              </div>
+            <div className="contact-info">
+              {information.map(info=> {
+                const { icon, text, link } = info;
+                const target = text === 'contact' ? null : "_blank";
+                return (
+                  <span className="items">
+                    <a href={link} className="contact-item" target={target}>
+                      <div>
+                        <img src={icon} width="110" height="96"/>
+                      </div>
+                      <div className="contact-name">
+                        {this.capitalize(text)}
+                      </div>
+                    </a>
+                  </span>
+                )
+              })}
             </div>
           </div>
           </div>

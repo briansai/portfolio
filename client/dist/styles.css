@@ -56,6 +56,11 @@ a {
       .main-container .main-categories .category-card-container .category-card .contact-info {
         text-align: center; }
         .main-container .main-categories .category-card-container .category-card .contact-info .contact-item {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+          transition: 0.2s;
+          background-color: white;
+          width: 136px;
+          margin: 30px;
           padding: 40px;
           display: inline-block;
           text-align: center;
@@ -64,8 +69,7 @@ a {
           top: 0;
           transition: top ease 0.2s; }
         .main-container .main-categories .category-card-container .category-card .contact-info .contact-item:hover {
-          top: -10px;
-          border-bottom: 5px solid black; }
+          top: -20px; }
     .main-container .main-categories .category-card-container .category-card:hover {
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4); }
 
