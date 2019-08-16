@@ -24,6 +24,7 @@
     }
   
     .nav-name {
+      font-family: 'Helvetica';
       font-size: 30px;
     }  
   }
@@ -47,9 +48,9 @@
   }
   
   .nav-category:hover {
-    color: gray;
     padding-left: 20px;
     border-left: 4px solid black;
+    background-color: #cccccc;
     cursor: pointer;
   }
 }

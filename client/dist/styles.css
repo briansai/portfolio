@@ -13,7 +13,7 @@ a {
     font-size: 2.5em;
     padding-left: 5%;
     padding-top: 3%;
-    background-color: green; }
+    background-color: #cccccc; }
   .main-container .main-categories .category-card-container {
     padding: 0 5%;
     width: 90%; }
@@ -91,6 +91,7 @@ a {
     .nav-container .name-container .nav-occupation {
       font-size: 16px; }
     .nav-container .name-container .nav-name {
+      font-family: 'Helvetica';
       font-size: 30px; }
   .nav-container .nav-category {
     line-height: 1.5;
@@ -105,9 +106,9 @@ a {
       padding-left: 10px;
       margin-bottom: 50px; }
   .nav-container .nav-category:hover {
-    color: gray;
     padding-left: 20px;
     border-left: 4px solid black;
+    background-color: #cccccc;
     cursor: pointer; }
 
 a {
