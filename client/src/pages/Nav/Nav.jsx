@@ -3,6 +3,9 @@ import { categories } from '../../constants/constants.jsx';
 import './Nav.scss';
 
 export default class Nav extends Component {
+  constructor(props) {
+    super(props);
+  }
   render () {
     return (
       <Fragment>

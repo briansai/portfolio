@@ -10,7 +10,7 @@ export default class Main extends Component {
   capitalize = word => word[0].toUpperCase() + word.slice(1);
 
   renderDescription = category => {
-    const {item, information} = category;
+    const {item, information, text } = category;
     if (item === 'Intro') {
       return (
         <div className="intro">
@@ -37,6 +37,9 @@ export default class Main extends Component {
           <div className="category-card-container">
           <div className="category-card">
             <div className="contact-info">
+              <div>
+                {text}
+              </div>
               {information.map(info=> {
                 const { icon, text, link } = info;
                 const target = text === 'contact' ? null : "_blank";
