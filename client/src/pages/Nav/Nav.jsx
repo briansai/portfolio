@@ -28,15 +28,15 @@ export default class Nav extends Component {
                 <Fragment>
                   {item !== 'Intro' ? (
                     <a href={`#${item}`}>
-                    <div className="nav-category">
-                      <span>
-                        <i className="material-icons">{icon}</i> 
-                      </span>
-                      <span className="nav-description">
-                        {item}
-                      </span>
-                    </div>
-                  </a>
+                      <div className="nav-category">
+                        <span>
+                          <i className="material-icons">{icon}</i> 
+                        </span>
+                        <span className="nav-description">
+                          {item}
+                        </span>
+                      </div>
+                    </a>
                   ) : (
                     null
                   )}

@@ -14,6 +14,28 @@ a {
     padding-left: 5%;
     padding-top: 3%;
     background-color: #cccccc; }
+  .main-container .main-categories .experience {
+    padding: 0 10%; }
+    .main-container .main-categories .experience .small-card-container {
+      padding: 0 2%;
+      width: 90%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+      transition: 0.2s;
+      background-color: white;
+      margin: 50px 20px; }
+      .main-container .main-categories .experience .small-card-container .card-description {
+        height: 50px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+        padding: 10px 10px 10px 0;
+        margin: 0 40px 0 40px;
+        font-size: 1.5em;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between; }
+        .main-container .main-categories .experience .small-card-container .card-description .title {
+          font-size: 1em; }
+      .main-container .main-categories .experience .small-card-container .card-info {
+        padding: 20px 20px 20px 60px; }
   .main-container .main-categories .category-card-container {
     padding: 0 5%;
     width: 90%; }

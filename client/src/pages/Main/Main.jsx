@@ -20,14 +20,14 @@ export default class Main extends Component {
       return(
       <Fragment>
         <div className="category-card-container">
-        <div className="about-container">
-          <div className="about-header">
-            Motivated, self-driven software engineer that has a passion to learn new technologies, create scalable applications, and scale large data efficiently.
+          <div className="about-container">
+            <div className="about-header">
+              Motivated, self-driven software engineer that has a passion to learn new technologies, create scalable applications, and scale large data efficiently.
+            </div>
+            <div className="about-text">
+              
+            </div>
           </div>
-          <div className="about-text">
-            
-          </div>
-        </div>
         </div>
       </Fragment>
       )
@@ -63,12 +63,11 @@ export default class Main extends Component {
       )
     } else if (item === 'Experience') {
       return (
-        <Fragment>
-          {information.map(info => {
+        <div className="experience">
+        {information.map(info => {
             const { logo, company, title, experiences } = info;
             return (
-              <div className="category-card-container">
-              <div className="category-card">
+              <div className="small-card-container">
                 <div className="card-description">
                   <span className="logo">
                     <img src={logo} alt="logo" width="40" height="40" />
@@ -88,10 +87,9 @@ export default class Main extends Component {
                   ))}
                 </ul>
               </div>
-              </div>
             )
           })}
-        </Fragment>
+        </div>
       )
     } else if (item === 'Skills') {
       const categoryKeys = Object.keys(information);
@@ -102,23 +100,23 @@ export default class Main extends Component {
             const categoryName = categoryKeys[index] === 'packageManager' ? 'Package Manager' : categoryKeys[index];
             return (
               <div className="category-card-container">
-              <div className="category-card">
-                <div className="card-description">
-                  {this.capitalize(categoryName)}
+                <div className="category-card">
+                  <div className="card-description">
+                    {this.capitalize(categoryName)}
+                  </div>
+                  <span className="card-skills">
+                    {values.map(tech => (
+                      <div className="skill-item">
+                        <div>
+                          <img src={tech.logo} width="75" height="75"/>
+                        </div>
+                        <div>
+                          {tech.name}
+                        </div>
+                      </div>
+                    ))}
+                  </span>
                 </div>
-                <span className="card-skills">
-                  {values.map(tech => (
-                    <div className="skill-item">
-                      <div>
-                        <img src={tech.logo} width="75" height="75"/>
-                      </div>
-                      <div>
-                        {tech.name}
-                      </div>
-                    </div>
-                  ))}
-                </span>
-              </div>
               </div>
             )
           })}
