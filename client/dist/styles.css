@@ -35,7 +35,8 @@ a {
         .main-container .main-categories .experience .small-card-container .card-description .title {
           font-size: 1em; }
       .main-container .main-categories .experience .small-card-container .card-info {
-        padding: 20px 20px 20px 60px; }
+        padding: 20px 20px 20px 60px;
+        line-height: 1.5; }
   .main-container .main-categories .category-card-container {
     padding: 0 5%;
     width: 90%; }
