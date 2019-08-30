@@ -7,12 +7,17 @@ export default class Nav extends Component {
     super(props);
   }
   render () {
+    const { images } = this.props
+    // const self = images[2].Key;
+    // console.log(self)
+    console.log(images)
     return (
       <Fragment>
         <div className="nav-container">
           <div className="name-container">
             <div className="nav-image">
               <img src={categories[0].information.self} alt="Brian Sai"/>
+              {/* <img src={`https://brian-portfolio.s3.amazonaws.com/${self}`} alt="Brian Sai"/> */}
             </div>
             <div className="nav-name">
               Brian Sai

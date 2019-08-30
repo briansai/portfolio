@@ -25,8 +25,8 @@ var bucketParams = {
 };
 
 // Call S3 to obtain a list of the objects in the bucket
-app.get('/images', (req, res) => {
-  s3.listObjects(bucketParams, async (err, data) => {
+app.get('/images', async (req, res) => {
+  await s3.listObjects(bucketParams, async (err, data) => {
   if (err) {
     console.log("Error", err);
   } else {
