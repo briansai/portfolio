@@ -34,7 +34,8 @@ export const categories = [
     icon: 'work',
     information:[
       {
-        logo: tubi,
+        logo: '',
+        text: 'tubi',
         company: 'Tubi',
         title: 'Tech Ops Engineer',
         experiences: [
@@ -44,7 +45,8 @@ export const categories = [
         ],
       },
       {
-        logo: mcmillan,
+        logo: '',
+        text: 'mcmillan',
         company: 'McMillan Electric',
         title: 'Project Engineer',
         experiences: [
@@ -155,17 +157,17 @@ export const categories = [
     information: [
       {
         text: 'email',
-        icon: email,
+        icon: '',
         link: 'mailto: brianwsai@gmail.com',
       },
       {
         text: 'linkedIn',
-        icon: linkedin,
+        icon: '',
         link: 'https://www.linkedin.com/in/briansai',
       },
       {
         text: 'github',
-        icon: github,
+        icon: '',
         link: 'https://www.github.com/briansai',
       }
     ],

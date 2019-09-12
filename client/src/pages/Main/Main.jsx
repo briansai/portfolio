@@ -10,6 +10,7 @@ export default class Main extends Component {
   capitalize = word => word[0].toUpperCase() + word.slice(1);
 
   renderDescription = category => {
+    const { contact, experience, intro, skills } = this.props.images;
     const {item, information, text } = category;
     if (item === 'Intro') {
       return (
@@ -31,7 +32,7 @@ export default class Main extends Component {
         </div>
       </Fragment>
       )
-    } else if (item === 'Contact') {
+    } else if (item === 'Contact') { 
       return (
         <Fragment>
           <div className="category-card-container">
@@ -41,13 +42,19 @@ export default class Main extends Component {
                 {text}
               </div>
               {information.map(info=> {
-                const { icon, text, link } = info;
+                const { text, link } = info;
                 const target = text === 'contact' ? null : "_blank";
+                contact.forEach(image => {
+                  const { Key, url } = image;
+                  if (Key.includes(text)) {
+                    info.icon = url;
+                  }
+                })     
                 return (
                   <span className="items">
                     <a href={link} className="contact-item" target={target}>
                       <div>
-                        <img src={icon} width="110" height="96"/>
+                        <img src={info.icon} width="110" height="96"/>
                       </div>
                       <div className="contact-name">
                         {this.capitalize(text)}
@@ -64,8 +71,16 @@ export default class Main extends Component {
     } else if (item === 'Experience') {
       return (
         <div className="experience">
-        {information.map(info => {
-            const { logo, company, title, experiences } = info;
+          {information.map(info => {
+            let { logo, company, title, experiences, text } = info;
+            experience.forEach(exp => {
+              const image = exp.Key;
+              const textAfterLastSlash = image.substring(image.lastIndexOf('/') + 1);
+              const imageName = textAfterLastSlash.substring(0, textAfterLastSlash.lastIndexOf('.'));
+              if (imageName === text) {
+                logo = exp.url;
+              }
+            })
             return (
               <div className="small-card-container">
                 <div className="card-description">

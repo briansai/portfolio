@@ -26,14 +26,17 @@ var bucketParams = {
 
 // Call S3 to obtain a list of the objects in the bucket
 app.get('/images', async (req, res) => {
-  await s3.listObjects(bucketParams, async (err, data) => {
-  if (err) {
-    console.log("Error", err);
-  } else {
-    res.type('png').json(data.Contents);
-    res.end(data);
-  }
-})});
+  const images = await s3.listObjects(bucketParams, (err, data) => {
+    console.log(data)
+    if (err) {
+      console.log("Error", err);
+    } else {
+      res.type('png').json(data.Contents);
+      res.end(data);
+    }
+  })
+  // console.log(images)
+});
 
 app.listen(PORT, () => {
   // eslint-disable-next-line

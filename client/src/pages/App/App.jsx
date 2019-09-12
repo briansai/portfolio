@@ -3,38 +3,47 @@ import axios from 'axios';
 import Main from '../Main/Main.jsx';
 import Nav from '../Nav/Nav.jsx';
 import './App.scss';
+import { IAM } from 'aws-sdk';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      images: {
-        contact: [],
-        experience: [],
-        favicon: [],
-        intro: [],
-        skills: [],
-      },
+      uploadComplete: false,
     }
   }
 
   componentDidMount() {
     axios.get('/images')
-      .then(res => {
-        res.data.forEach(image => {
+      .then(async res => {
+        let images = {
+          contact: [],
+          experience: [],
+          favicon: [],
+          intro: [],
+          skills: [],
+        };
+        res.data.forEach((image, index) => {
           const { Key } = image;
-          const { contact, experience, favicon, intro, skills } = this.state.images;
-          if (Key.includes('contact')) {
-            contact.push(image);
-          } else if (Key.includes('experience')) {
-            experience.push(image);
-          } else if (Key.includes('favicon')) {
-            favicon.push(image);
-          } else if (Key.includes('intro')) {
-            intro.push(image);
-          } else if (Key.includes('skills')) {
-            skills.push(image);
+          const imageKeys = Object.keys(images);
+          // See if there is a substring after the last slash
+          if (Key.substring(Key.lastIndexOf('/') + 1)) {
+            const url = `https://brian-portfolio.s3.amazonaws.com/${Key}`;
+            image.url = url;
+            imageKeys.forEach(key => {
+              if (Key.includes(key)) {
+                images[key].push(image);
+                return;
+              }
+            })
+          }
+
+          if (index === res.data.length - 1) {
+            this.setState({
+              images: images,
+              uploadComplete: true
+            });
           }
         })
       })
@@ -44,10 +53,11 @@ export default class App extends Component {
   }
 
   render() {
-    const images = this.state.images;
+    const { images } = this.state;
+    console.log(images)
     return (
       <Fragment>
-        {this.state.images ? (
+        {this.state.uploadComplete ? (
           <div className="app">
             <Fragment>
               <Nav images={images.intro}/>
