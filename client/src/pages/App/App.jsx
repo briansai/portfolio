@@ -47,14 +47,14 @@ export default class App extends Component {
           }
         })
       })
-      .catch(err => (
-        console.log(err)
-      ))
+      .catch(err => {
+        return;
+        // console.log(err)
+      })
   }
 
   render() {
     const { images } = this.state;
-    console.log(images)
     return (
       <Fragment>
         {this.state.uploadComplete ? (

@@ -7,7 +7,6 @@ export default class Nav extends Component {
     super(props);
   }
   render () {
-    console.log(this.props)
     const { images } = this.props
     const self = images[1].Key;
     return (

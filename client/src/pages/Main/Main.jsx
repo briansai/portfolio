@@ -23,7 +23,7 @@ export default class Main extends Component {
         <div className="category-card-container">
           <div className="about-container">
             <div className="about-header">
-              Motivated, self-driven software engineer that has a passion to learn new technologies, create scalable applications, and scale large data efficiently.
+              Motivated, self-driven software engineer that has a passion for automation and scalable applications.
             </div>
             <div className="about-text">
               
@@ -36,35 +36,35 @@ export default class Main extends Component {
       return (
         <Fragment>
           <div className="category-card-container">
-          <div className="category-card">
-            <div className="contact-info">
-              <div>
-                {text}
+            <div className="category-card">
+              <div className="contact-info">
+                <div>
+                  {text}
+                </div>
+                {information.map(info=> {
+                  const { text, link } = info;
+                  const target = text === 'contact' ? null : "_blank";
+                  contact.forEach(image => {
+                    const { Key, url } = image;
+                    if (Key.includes(text)) {
+                      info.icon = url;
+                    }
+                  })     
+                  return (
+                    <span className="items">
+                      <a href={link} className="contact-item" target={target}>
+                        <div>
+                          <img src={info.icon} width="110" height="96"/>
+                        </div>
+                        <div className="contact-name">
+                          {this.capitalize(text)}
+                        </div>
+                      </a>
+                    </span>
+                  )
+                })}
               </div>
-              {information.map(info=> {
-                const { text, link } = info;
-                const target = text === 'contact' ? null : "_blank";
-                contact.forEach(image => {
-                  const { Key, url } = image;
-                  if (Key.includes(text)) {
-                    info.icon = url;
-                  }
-                })     
-                return (
-                  <span className="items">
-                    <a href={link} className="contact-item" target={target}>
-                      <div>
-                        <img src={info.icon} width="110" height="96"/>
-                      </div>
-                      <div className="contact-name">
-                        {this.capitalize(text)}
-                      </div>
-                    </a>
-                  </span>
-                )
-              })}
             </div>
-          </div>
           </div>
         </Fragment>
       )
@@ -107,26 +107,33 @@ export default class Main extends Component {
         </div>
       )
     } else if (item === 'Skills') {
-      const categoryKeys = Object.keys(information);
-      const categoryValues = Object.values(information);
+      skills.forEach(item => {
+        const { Key, url } = item;
+        const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
+        const image = Key.substring(Key.lastIndexOf('/') + 1);
+        const technology = image.substring(0, image.indexOf('.'));
+        information[skill].push({ url, technology })
+      })
+
+      const skillEntries = Object.entries(information);
       return (
         <div>
-          {categoryValues.map((values, index) => {
-            const categoryName = categoryKeys[index] === 'packageManager' ? 'Package Manager' : categoryKeys[index];
+          {skillEntries.map(values => {
+            const categoryName = values[0] === 'packageManager' ? 'Package Manager' : this.capitalize(values[0]);
             return (
               <div className="category-card-container">
                 <div className="category-card">
                   <div className="card-description">
-                    {this.capitalize(categoryName)}
+                    {categoryName}
                   </div>
                   <span className="card-skills">
-                    {values.map(tech => (
+                    {values[1].map(tech => (
                       <div className="skill-item">
                         <div>
-                          <img src={tech.logo} width="75" height="75"/>
+                          <img src={tech.url} width="75" height="75"/>
                         </div>
                         <div>
-                          {tech.name}
+                          {tech.technology}
                         </div>
                       </div>
                     ))}
@@ -137,7 +144,7 @@ export default class Main extends Component {
           })}
         </div>
       )
-    }
+    } 
 
     return (
       <Fragment>

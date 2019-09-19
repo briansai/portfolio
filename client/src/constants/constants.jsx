@@ -1,27 +1,7 @@
-import javascript from '../images/skills/language/javascript.png';
-import react from '../images/skills/frontend/react.png';
-import redux from '../images/skills/frontend/redux.png';
-import reactstrap from '../images/skills/frontend/reactstrap.png';
-import sass from '../images/skills/frontend/sass.png';
-import material from '../images/skills/frontend/material.png';
-import html from '../images/skills/frontend/html5.png';
-import css3 from '../images/skills/frontend/css3.png';
-import node from '../images/skills/backend/node.png';
-import express from '../images/skills/backend/express.png';
-import mongodb from '../images/skills/backend/mongodb.png';
-import mysql from '../images/skills/backend/mysql.png';
-import redis from '../images/skills/backend/redis.png';
-import npm from '../images/skills/packageManager/npm.png';
-import yarn from '../images/skills/packageManager/yarn.png';
-import tubi from '../images/experience/tubi.png';
-import mcmillan from '../images/experience/mcmillan.png';
-import email from '../images/contact/email.png';
-import linkedin from '../images/contact/linkedin.png';
-import github from '../images/contact/github.png';
 import intro from '../images/intro/intro.png';
 import self from '../images/intro/self.png';
 
-export const categories = [
+export let categories = [
   {
     item: 'Intro',
     information: { intro, self },
@@ -62,74 +42,10 @@ export const categories = [
   { item: 'Skills',
     icon: 'build',
     information: {
-      language: [
-        {
-          name: 'Javascript',
-          logo: javascript
-        }
-      ],
-      frontend: [
-        {
-          name: 'React',
-          logo: react,
-        },
-        {
-          name: 'Redux',
-          logo: redux,
-        },
-        {
-          name: 'Reactstrap',
-          logo: reactstrap,
-        },
-        {
-          name: 'Sass',
-          logo: sass,
-        },
-        {
-          name: 'Material-UI',  
-          logo: material,
-        },
-        {
-          name: 'HTMl5',
-          logo: html,
-        },
-        {
-          name: 'CSS3',
-          logo: css3,
-        },
-      ],
-      backend: [
-        {
-          name: 'Node',
-          logo: node,
-        },
-        {
-          name: 'Express',
-          logo: express,
-        },
-        {
-          name: 'MySQL',
-          logo: mysql,
-        },
-        {
-          name: 'MongoDB',
-          logo: mongodb,
-        },
-        {
-          name: 'Redis',
-          logo: redis,
-        },
-      ],
-      packageManager : [
-        {
-          name: 'NPM',
-          logo: npm,
-        },
-        {
-          name: 'yarn',
-          logo: yarn,
-        }
-      ]
+      language: [],
+      frontend: [],
+      backend: [],
+      packageManager : []
     },
   },
   { item: 'Projects',
@@ -140,12 +56,14 @@ export const categories = [
     icon: 'school',
     information: [
       {
-        school: 'San Francisco State University',
-        degree: 'Bachelor\'s',
+        institute: 'San Francisco State University',
+        year: '2016',
+        degree: 'Bachelor\'s of Science',
         logo: '',
       },
       {
-        school: 'Hack Reactor',
+        institute: 'Hack Reactor',
+        year: '2018',
         degree: 'Full Stack Developer',
         logo: '',
       }
