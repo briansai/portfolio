@@ -61,6 +61,8 @@ a {
         justify-content: space-between; }
         .main-container .main-categories .category-card-container .category-card .card-description .title {
           font-size: 1em; }
+      .main-container .main-categories .category-card-container .category-card .in-progress {
+        text-align: center; }
       .main-container .main-categories .category-card-container .category-card .card-skills {
         box-sizing: border-box;
         display: grid;

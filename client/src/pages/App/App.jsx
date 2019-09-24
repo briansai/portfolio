@@ -23,6 +23,7 @@ export default class App extends Component {
           favicon: [],
           intro: [],
           skills: [],
+          construction: [],
         };
         res.data.forEach((image, index) => {
           const { Key } = image;
@@ -55,6 +56,7 @@ export default class App extends Component {
 
   render() {
     const { images } = this.state;
+    console.log(this.state)
     return (
       <Fragment>
         {this.state.uploadComplete ? (

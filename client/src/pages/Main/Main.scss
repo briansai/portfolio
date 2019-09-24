@@ -80,6 +80,10 @@ a {
         @include card-shadow;
         @include card-description(category);
 
+        .in-progress {
+          text-align: center;
+        }
+
         .card-skills {
           box-sizing: border-box;
           display: grid;

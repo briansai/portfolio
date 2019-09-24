@@ -10,7 +10,7 @@ export default class Main extends Component {
   capitalize = word => word[0].toUpperCase() + word.slice(1);
 
   renderDescription = category => {
-    const { contact, experience, intro, skills } = this.props.images;
+    const { contact, experience, intro, skills, construction } = this.props.images;
     const {item, information, text } = category;
     if (item === 'Intro') {
       return (
@@ -150,9 +150,8 @@ export default class Main extends Component {
       <Fragment>
         <div className="category-card-container">
         <div className="category-card">
-          <div className="card-description">
-          </div>
-          <div className="card-info">
+          <div className="in-progress">
+            <img src={construction[0].url}/>
           </div>
         </div>
         </div>

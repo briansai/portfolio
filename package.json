@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch",
+    "dev": "webpack -d --watch --progress",
+    "prod": "webpack -p --watch --progress",
     "start": "nodemon server/controller.js"
   },
   "repository": {
