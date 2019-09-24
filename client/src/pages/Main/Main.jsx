@@ -107,6 +107,7 @@ export default class Main extends Component {
         </div>
       )
     } else if (item === 'Skills') {
+      console.log(skills)
       skills.forEach(item => {
         const { Key, url } = item;
         const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
@@ -116,6 +117,7 @@ export default class Main extends Component {
       })
 
       const skillEntries = Object.entries(information);
+      console.log(skillEntries)
       return (
         <div>
           {skillEntries.map(values => {

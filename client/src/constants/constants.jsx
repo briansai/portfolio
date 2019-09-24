@@ -46,7 +46,6 @@ export let categories = [
       frontend: [],
       backend: [],
       packageManager : [],
-      construction: []
     },
   },
   { item: 'Projects',
