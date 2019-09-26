@@ -26,16 +26,14 @@ var bucketParams = {
 
 // Call S3 to obtain a list of the objects in the bucket
 app.get('/images', async (req, res) => {
-  const images = await s3.listObjects(bucketParams, (err, data) => {
-    console.log(data)
+  await s3.listObjects(bucketParams, (err, data) => {
     if (err) {
-      console.log("Error", err);
+      throw new Error("Error", err);
     } else {
       res.type('png').json(data.Contents);
       res.end(data);
     }
   })
-  // console.log(images)
 });
 
 app.listen(PORT, () => {

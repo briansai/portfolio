@@ -10,12 +10,11 @@ export default class Main extends Component {
   capitalize = word => word[0].toUpperCase() + word.slice(1);
 
   renderDescription = category => {
-    const { contact, experience, intro, skills, construction } = this.props.images;
+    const { contact, experience, skills, construction } = this.props.images;
     const {item, information, text } = category;
     if (item === 'Intro') {
       return (
-        <div className="intro">
-        </div>
+        <div className="intro" />
       )
     } else if (item === 'About') {
       return(
@@ -23,10 +22,9 @@ export default class Main extends Component {
         <div className="category-card-container">
           <div className="about-container">
             <div className="about-header">
-              Motivated, self-driven software engineer that has a passion for automation and scalable applications.
+              Motivated, self-driven software engineer that has a passion for scalable applications and finding solutions to problems.
             </div>
             <div className="about-text">
-              
             </div>
           </div>
         </div>
@@ -153,7 +151,7 @@ export default class Main extends Component {
         <div className="category-card-container">
         <div className="category-card">
           <div className="in-progress">
-            <img src={construction[0].url}/>
+            <img src={construction[0].url} />
           </div>
         </div>
         </div>
