@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
-import scrollToElement from 'scroll-to-element';
 import Main from '../Main/Main.jsx';
 import Nav from '../Nav/Nav.jsx';
 import './App.scss';
-// import { IAM } from 'aws-sdk';
 
 export default class App extends Component {
   constructor(props) {
@@ -51,7 +49,7 @@ export default class App extends Component {
         })
       })
       .catch(err => {
-        console.log(err)
+        throw new Error(err);
       })
   }
 

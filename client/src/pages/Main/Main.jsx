@@ -18,7 +18,6 @@ export default class Main extends Component {
       )
     } else if (item === 'About') {
       return(
-      <Fragment>
         <div className="category-card-container">
           <div className="about-container">
             <div className="about-header">
@@ -28,43 +27,40 @@ export default class Main extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
       )
     } else if (item === 'Contact') { 
       return (
-        <Fragment>
-          <div className="category-card-container">
-            <div className="category-card">
-              <div className="contact-info">
-                <div>
-                  {text}
-                </div>
-                {information.map(info=> {
-                  const { text, link } = info;
-                  const target = text === 'contact' ? null : "_blank";
-                  contact.forEach(image => {
-                    const { Key, url } = image;
-                    if (Key.includes(text)) {
-                      info.icon = url;
-                    }
-                  })     
-                  return (
-                    <span className="items">
-                      <a href={link} className="contact-item" target={target}>
-                        <div>
-                          <img src={info.icon} width="110" height="96"/>
-                        </div>
-                        <div className="contact-name">
-                          {this.capitalize(text)}
-                        </div>
-                      </a>
-                    </span>
-                  )
-                })}
+        <div className="category-card-container">
+          <div className="category-card">
+            <div className="contact-info">
+              <div>
+                {text}
               </div>
+              {information.map(info=> {
+                const { text, link } = info;
+                const target = text === 'contact' ? null : "_blank";
+                contact.forEach(image => {
+                  const { Key, url } = image;
+                  if (Key.includes(text)) {
+                    info.icon = url;
+                  }
+                })
+                return (
+                  <span className="items">
+                    <a href={link} className="contact-item" target={target}>
+                      <div>
+                        <img src={info.icon} width="110" height="96"/>
+                      </div>
+                      <div className="contact-name">
+                        {this.capitalize(text)}
+                      </div>
+                    </a>
+                  </span>
+                )
+              })}
             </div>
           </div>
-        </Fragment>
+        </div>
       )
     } else if (item === 'Experience') {
       return (
@@ -147,49 +143,45 @@ export default class Main extends Component {
     } 
 
     return (
-      <Fragment>
-        <div className="category-card-container">
+      <div className="category-card-container">
         <div className="category-card">
           <div className="in-progress">
             <img src={construction[0].url} />
           </div>
         </div>
-        </div>
-      </Fragment>
+      </div>
     )
   }
 
   render () {
     return (
-      <Fragment>
-        <div className="main-container">
-          <div className="main-categories">
-            {categories.map(category => {
-              const { item } = category;
-              const section = item !== 'Resume' ? (
-                <Fragment>
-                  {item !== 'Intro' ? (
-                    <div className="category-header" id={item}>
-                    {item}
-                  </div>
-                  ) : (
-                    null
-                  )}
-                  <div>
-                    {this.renderDescription(category)}
-                  </div>
-                </Fragment>
-              ) : (
-                null
-              )
+      <div className="main-container">
+        <div className="main-categories">
+          {categories.map(category => {
+            const { item } = category;
+            const section = item !== 'Resume' ? (
+              <Fragment>
+                {item !== 'Intro' ? (
+                  <div className="category-header" id={item}>
+                  {item}
+                </div>
+                ) : (
+                  null
+                )}
+                <div>
+                  {this.renderDescription(category)}
+                </div>
+              </Fragment>
+            ) : (
+              null
+            )
 
-              return (
-                section
-              )
-            })}
-          </div>
+            return (
+              section
+            )
+          })}
         </div>
-      </Fragment>
+      </div>
     )
   }
 }
