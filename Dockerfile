@@ -5,7 +5,7 @@ FROM node:latest
 RUN mkdir -p /src/app
 
 # Tell your container where your app's source code will live
-WORKDIR /client/src/
+WORKDIR /client/src/app
 
 # What source code do you what to copy, and where to put it?
 COPY package*.json ./
