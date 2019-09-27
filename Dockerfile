@@ -1,8 +1,11 @@
 # What image do you want to start building on?
 FROM node:latest
 
+# Make a folder in your image where your app's source code can live
+RUN mkdir -p /src/app
+
 # Tell your container where your app's source code will live
-WORKDIR /client/src/app
+WORKDIR /client/src/
 
 # What source code do you what to copy, and where to put it?
 COPY package*.json ./
