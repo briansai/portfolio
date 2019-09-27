@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import scrollToElement from 'scroll-to-element';
 import { categories } from '../../constants/constants.jsx';
 import './Nav.scss';
 
@@ -6,48 +7,49 @@ export default class Nav extends Component {
   constructor(props) {
     super(props);
   }
+
+  handleScroll = el => {
+    scrollToElement(el);
+  }
+
   render () {
     const { images } = this.props
     const self = images[1].Key;
     return (
-      <Fragment>
-        <div className="nav-container">
-          <div className="name-container">
-            <div className="nav-image">
-              <img src={`https://brian-portfolio.s3.amazonaws.com/${self}`} alt="Brian Sai"/>
-            </div>
-            <div className="nav-name">
-              Brian Sai
-            </div>
-            <div className="nav-occupation">
-              FullStack Developer
-            </div>
+      <div className="nav-container">
+        <div className="name-container">
+          <div className="nav-image">
+            <img src={`https://brian-portfolio.s3.amazonaws.com/${self}`} alt="Brian Sai"/>
           </div>
-          <div>
-            {categories.map(category => {
-              const { item, icon } = category;
-              return (
-                <Fragment>
-                  {item !== 'Intro' ? (
-                    <a href={`#${item}`}>
-                      <div className="nav-category">
-                        <span>
-                          <i className="material-icons">{icon}</i> 
-                        </span>
-                        <span className="nav-description">
-                          {item}
-                        </span>
-                      </div>
-                    </a>
-                  ) : (
-                    null
-                  )}
-                </Fragment>
-              )
-            })}
+          <div className="nav-name">
+            Brian Sai
+          </div>
+          <div className="nav-occupation">
+            FullStack Developer
           </div>
         </div>
-      </Fragment>
+        <div>
+          {categories.map(category => {
+            const { item, icon } = category;
+            return (
+              <Fragment>
+                {item !== 'Intro' ? (
+                  <div onClick={() => this.handleScroll(`#${item}`)} className="nav-category">
+                    <span>
+                      <i className="material-icons">{icon}</i> 
+                    </span>
+                    <span className="nav-description">
+                      {item}
+                    </span>
+                  </div>
+                ) : (
+                  null
+                )}
+              </Fragment>
+            )
+          })}
+        </div>
+      </div>
     )
   }
 }

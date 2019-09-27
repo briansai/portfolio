@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+import scrollToElement from 'scroll-to-element';
 import Main from '../Main/Main.jsx';
 import Nav from '../Nav/Nav.jsx';
 import './App.scss';
-import { IAM } from 'aws-sdk';
+// import { IAM } from 'aws-sdk';
 
 export default class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class App extends Component {
 
     this.state = {
       uploadComplete: false,
+      element: '',
     }
   }
 
@@ -55,7 +57,6 @@ export default class App extends Component {
 
   render() {
     const { images } = this.state;
-    console.log(this.state)
     return (
       <Fragment>
         {this.state.uploadComplete ? (
