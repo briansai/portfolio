@@ -1,10 +1,7 @@
-import intro from '../images/intro/intro.png';
-import self from '../images/intro/self.png';
-
 export let categories = [
   {
     item: 'Intro',
-    information: { intro, self },
+    information: [],
   },
   { item: 'About',
     icon: 'person',
