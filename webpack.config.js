@@ -15,6 +15,17 @@ module.exports = {
   devtool: "source-map",
   optimization: {
     minimizer: [new UglifyJsPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /node_modules/,
+        },
+      },
+    },
   },
   module: {
     rules: [
