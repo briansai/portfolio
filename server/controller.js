@@ -4,7 +4,7 @@ const path = require('path');
 const AWS = require('aws-sdk');
 
 const app = express();
-const PORT = process.env.PORT || 80; 
+const PORT = process.env.PORT || 3001; 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
