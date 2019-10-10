@@ -21,7 +21,7 @@ export default class Main extends Component {
         <div className="category-card-container">
           <div className="about-container">
             <div className="about-header">
-              Motivated, self-driven software engineer that has a passion for scalable applications and finding solutions to problems.
+              Motivated, self-driven software engineer that has a strong passion to improve quality of life and experience with efficiency, affinity to find technical solutions to problems, and make an impact on people's lives as technology advances.
             </div>
             <div className="about-text">
             </div>

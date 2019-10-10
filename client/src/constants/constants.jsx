@@ -16,9 +16,10 @@ export let categories = [
         company: 'Tubi',
         title: 'Tech Ops Engineer',
         experiences: [
-          'Debugged and contributed to features on the CMSUI, saving time and company money by creating a user-friendly UI for users.',
-          'Integrated automation logic to the CMSUI to make it easier for users to process and retrieve information',
-          'Maintained, updated, and created automation of reports.',
+          'Collaborated with a team of four to streamline the company’s content pipeline for the operation team',
+          'Worked together with other departments in the company to deliver the best features and products',
+          'Debugged and contributed to features on the CMSUI to create a more user-friendly UI for users and streamline the workflow',
+          'Created/updated APIs and automated tools to make processing and retrieving information efficient'          ,
         ],
       },
       {
