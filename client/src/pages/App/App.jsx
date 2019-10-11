@@ -53,6 +53,10 @@ export default class App extends Component {
       })
   }
 
+  handleSubmit = (obj) => {
+    console.log(obj)
+  }
+
   render() {
     const { images } = this.state;
     return (
@@ -63,7 +67,7 @@ export default class App extends Component {
               <Nav images={images.intro}/>
             </Fragment>
             <Fragment>
-              <Main images={images}/>
+              <Main images={images} handleSubmit={this.handleSubmit}/>
             </Fragment>
           </div>
         ) : (

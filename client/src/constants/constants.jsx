@@ -16,10 +16,10 @@ export let categories = [
         company: 'Tubi',
         title: 'Tech Ops Engineer',
         experiences: [
-          'Collaborated with a team of four to streamline the company’s content pipeline for the operation team',
-          'Worked together with other departments in the company to deliver the best features and products',
+          'Collaborated with a team of four to streamline the company’s content pipeline for the operations team',
+          'Worked interdepartmentally to deliver the best features and products for end users',
           'Debugged and contributed to features on the CMSUI to create a more user-friendly UI for users and streamline the workflow',
-          'Created/updated APIs and automated tools to make processing and retrieving information efficient'          ,
+          'Created, maintained, and automated APIs and other tools for more seamless data retrieval',
         ],
       },
       {
@@ -28,11 +28,11 @@ export let categories = [
         company: 'McMillan Electric',
         title: 'Project Engineer',
         experiences: [
-          'Contributed to the acquisition of the electrical contract for Facebook worth $9 million.',
-          'Acquired the electrical contract for LEK Consulting worth $450,000.',
-          'Maintained excellent relationships with general contractors and subcontractors for prospective business',
-          'Managed projects in a high traffic environment and determined budget outcomes by calculating the cost of necessary manpower and material before delivering reports',
-          'Surveyed locations of prospective contracts and proposed a bid with an estimated cost for the projects',
+          'Contributed to the acquisition of the electrical contract for Facebook worth $9 million',
+          'Acquired the electrical contract for LEK Consulting worth $450,000',
+          'Maintained relationships with general contractors and subcontractors for prospective business',
+          'Managed projects in a high traffic environment and determined budget outcomes by calculating the cost of necessary manpower and material prior to final report delivery ',
+          'Surveyed locations of prospective contracts and proposed a bid with an estimated cost for the projects '
         ],
       }
     ],
@@ -74,7 +74,6 @@ export let categories = [
       {
         text: 'email',
         icon: '',
-        link: 'mailto: brianwsai@gmail.com',
       },
       {
         text: 'linkedIn',

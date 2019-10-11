@@ -1,13 +1,131 @@
 import React, { Component, Fragment } from 'react';
+import Modal from 'react-modal';
 import { categories } from '../../constants/constants.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      modalOpen: false,
+      formSubmitt: false,
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
+    }
   }
 
   capitalize = word => word[0].toUpperCase() + word.slice(1);
+
+  onOpen = () => {
+    this.setState({ modalOpen: true });
+  }
+
+  onClose = () => {
+    this.setState({
+      modalOpen: false,
+      formSubmitted: false,
+    });
+  }
+
+  handleInput = e => {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  onSubmit = e => {
+    const { firstName, lastName, email, message } = this.state;
+    const { handleSubmit } = this.props;
+
+    handleSubmit({ firstName, lastName, email, message });
+    this.setState({ formSubmitted: true });
+    e.preventDefault();
+  }
+
+  createModal = () => {
+    const { modalOpen, formSubmitted } = this.state;
+    const customStyles = {
+      overlay: {
+        opacity: 3,
+        transition: 'opacity linear 0.5s',
+        backgroundColor: 'rgba(3, 3, 3, 0.4)'
+      },
+      content : {
+        width: '500px',
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+      }
+    };
+    const formContent = [
+      {
+        label: 'First Name: ',
+        name: 'firstName',
+      },
+      {
+        label: 'Last Name: ',
+        name: 'lastName',
+      },
+      {
+        label: 'Email: ',
+        name: 'email',
+      },
+      {
+        label: 'Message: ',
+        name: 'message',
+      }
+    ]
+
+    if (!formSubmitted) {
+      return (
+        <Modal isOpen={modalOpen} onRequestClose={this.onClose} shouldCloseOnOverlayClick={false} style={customStyles}>
+          <form className="modal">
+            {formContent.map(content => (
+              <div className="modalCategory">
+                <Fragment>
+                  <label>
+                    {content.label}
+                  </label>
+                  <div>
+                    {content.name === "message" ? (
+                      <textarea type="text" name={content.name} onChange={this.handleInput} />
+                    ) : (
+                      <input type="text" name={content.name} onChange={this.handleInput} />
+                    )}
+                  </div>
+                </Fragment>
+              </div>
+            ))}
+            <div className="buttonContainer">
+              <button onClick={this.onClose}>Cancel</button>
+              <button onClick={this.onSubmit}>Submit</button>
+            </div>
+          </form>
+        </Modal>
+      )
+    }
+
+    return (
+      <Modal isOpen={modalOpen} onRequestClose={this.onClose} style={customStyles}>
+        <div onClick={this.onClose} className="modalClose">
+          X
+        </div>
+        <div>
+          Thanks for reaching out!  Your email has been sent.  Thank you for your time.
+        </div>
+      </Modal>
+    )
+  }
 
   renderDescription = category => {
     const { contact, experience, skills, construction } = this.props.images;
@@ -28,7 +146,7 @@ export default class Main extends Component {
           </div>
         </div>
       )
-    } else if (item === 'Contact') { 
+    } else if (item === 'Contact') {
       return (
         <div className="category-card-container">
           <div className="category-card">
@@ -38,7 +156,8 @@ export default class Main extends Component {
               </div>
               {information.map(info=> {
                 const { text, link } = info;
-                const target = text === 'contact' ? null : "_blank";
+                const target = text === 'email' ? null : "_blank";
+                const emailClick = text === 'email' ? this.onOpen : null;
                 contact.forEach(image => {
                   const { Key, url } = image;
                   if (Key.includes(text)) {
@@ -47,7 +166,7 @@ export default class Main extends Component {
                 })
                 return (
                   <span className="items">
-                    <a href={link} className="contact-item" target={target}>
+                    <a href={link} className="contact-item" target={target} onClick={emailClick}>
                       <div>
                         <img src={info.icon} width="110" height="96"/>
                       </div>
@@ -101,13 +220,15 @@ export default class Main extends Component {
         </div>
       )
     } else if (item === 'Skills') {
-      skills.forEach(item => {
-        const { Key, url } = item;
-        const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
-        const image = Key.substring(Key.lastIndexOf('/') + 1);
-        const technology = image.substring(0, image.indexOf('.'));
-        information[skill].push({ url, technology })
-      })
+      if (!information.backend.length) {
+        skills.forEach(item => {
+          const { Key, url } = item;
+          const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
+          const image = Key.substring(Key.lastIndexOf('/') + 1);
+          const technology = image.substring(0, image.indexOf('.'));
+          information[skill].push({ url, technology })
+        })
+      }
 
       const skillEntries = Object.entries(information);
       return (
@@ -153,33 +274,36 @@ export default class Main extends Component {
 
   render () {
     return (
-      <div className="main-container">
-        <div className="main-categories">
-          {categories.map(category => {
-            const { item } = category;
-            const section = item !== 'Resume' ? (
-              <Fragment>
-                {item !== 'Intro' ? (
-                  <div className="category-header" id={item}>
-                  {item}
-                </div>
-                ) : (
-                  null
-                )}
-                <div>
-                  {this.renderDescription(category)}
-                </div>
-              </Fragment>
-            ) : (
-              null
-            )
+      <Fragment>
+        <div className="main-container">
+          <div className="main-categories">
+            {categories.map(category => {
+              const { item } = category;
+              const section = item !== 'Resume' ? (
+                <Fragment>
+                  {item !== 'Intro' ? (
+                    <div className="category-header" id={item}>
+                    {item}
+                  </div>
+                  ) : (
+                    null
+                  )}
+                  <div>
+                    {this.renderDescription(category)}
+                  </div>
+                </Fragment>
+              ) : (
+                null
+              )
 
-            return (
-              section
-            )
-          })}
+              return (
+                section
+              )
+            })}
+          </div>
         </div>
-      </div>
+        {this.createModal()}
+      </Fragment>
     )
   }
 }
