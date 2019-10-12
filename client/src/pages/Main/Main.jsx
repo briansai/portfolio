@@ -81,6 +81,10 @@ export default class Main extends Component {
         name: 'email',
       },
       {
+        label: 'Subject',
+        name: 'subject',
+      },
+      {
         label: 'Message: ',
         name: 'message',
       }

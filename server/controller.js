@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 3001; 
@@ -35,6 +36,31 @@ app.get('/images', async (req, res) => {
     }
   })
 });
+
+app.post('/email', (req,res) => {
+  const { firstName, lastName, email, subject, body } = req.body;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'brianwsai@gmail.com',
+      pass: 'Lilyeknomsai1'
+    }
+  })
+
+  const mailOptions = {
+    from: email,
+    to: 'brianwsai@gmail.com',
+    subject: subject,
+    body: body,
+  }
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if(err)
+      console.log(err)
+    else
+      console.log(info);
+ });
+})
 
 app.listen(PORT, () => {
   // eslint-disable-next-line

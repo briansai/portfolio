@@ -54,7 +54,10 @@ export default class App extends Component {
   }
 
   handleSubmit = (obj) => {
-    console.log(obj)
+    axios.post('/email', obj)
+      .then(p => {
+        console.log('sent!!: ', p)
+      })
   }
 
   render() {
