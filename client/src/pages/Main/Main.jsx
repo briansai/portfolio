@@ -9,9 +9,10 @@ export default class Main extends Component {
 
     this.state = {
       modalOpen: false,
-      formSubmitt: false,
+      formSubmitted: false,
       firstName: '',
       lastName: '',
+      subject: '',
       email: '',
       message: '',
     }
@@ -41,10 +42,10 @@ export default class Main extends Component {
   }
 
   onSubmit = e => {
-    const { firstName, lastName, email, message } = this.state;
+    const { firstName, lastName, email, subject, message } = this.state;
     const { handleSubmit } = this.props;
 
-    handleSubmit({ firstName, lastName, email, message });
+    handleSubmit({ firstName, lastName, email, subject, message });
     this.setState({ formSubmitted: true });
     e.preventDefault();
   }
@@ -125,7 +126,7 @@ export default class Main extends Component {
           X
         </div>
         <div>
-          Thanks for reaching out!  Your email has been sent.  Thank you for your time.
+          Thank you for reaching out!  Your message from <strong>{this.state.email}</strong> has been sent.  I will get back to you shortly. Have a great day.
         </div>
       </Modal>
     )
@@ -155,7 +156,7 @@ export default class Main extends Component {
         <div className="category-card-container">
           <div className="category-card">
             <div className="contact-info">
-              <div>
+              <div className="contact-text">
                 {text}
               </div>
               {information.map(info=> {

@@ -35,6 +35,7 @@ a {
   width: 95%;
   height: ($text);
   border: solid #B8B8B8 1px;
+  outline: none;
 }
 
 .modalClose {
@@ -51,6 +52,13 @@ a {
   .modalCategory {
     margin: 20px 0;
 
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      transition: all 5000s ease-in-out 0s;
+      transition-property: background-color, color;
+    }
     input {
       @include text(20px);
     }
@@ -152,6 +160,11 @@ a {
 
         .contact-info {
           text-align: center;
+
+          .contact-text {
+            margin-bottom: -15px;
+            font-size: 1.5rem;
+          }
 
           .contact-item {
             @include card-shadow;

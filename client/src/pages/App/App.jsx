@@ -55,9 +55,10 @@ export default class App extends Component {
 
   handleSubmit = (obj) => {
     axios.post('/email', obj)
-      .then(p => {
-        console.log('sent!!: ', p)
+      .then(async emailInfo => {
+        return await emailInfo.data.accepted[0]
       })
+      .catch(err => { throw new Error(err) })
   }
 
   render() {

@@ -38,27 +38,26 @@ app.get('/images', async (req, res) => {
 });
 
 app.post('/email', (req,res) => {
-  const { firstName, lastName, email, subject, body } = req.body;
+  const { firstName, lastName, email, subject, message } = req.body;
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'brianwsai@gmail.com',
+      user: 'briansai.portfolio@gmail.com',
       pass: 'Lilyeknomsai1'
     }
   })
-
   const mailOptions = {
     from: email,
     to: 'brianwsai@gmail.com',
-    subject: subject,
-    body: body,
+    subject,
+    text: `Name: ${firstName} ${lastName} \nFrom: ${email} \nMessage: \n${message}`,
   }
 
   transporter.sendMail(mailOptions, (err, info) => {
     if(err)
-      console.log(err)
+      throw new Error(err);
     else
-      console.log(info);
+      res.json(info);
  });
 })
 

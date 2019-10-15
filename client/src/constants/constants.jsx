@@ -69,7 +69,7 @@ export let categories = [
   },
   { item: 'Contact',
     icon: 'mail_outline',
-    text: 'I\'d love to connect with you.  Let\'s chat and talk code',
+    text: 'I\'d love to connect with you.  Let\'s chat and talk code.',
     information: [
       {
         text: 'email',
