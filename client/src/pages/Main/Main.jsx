@@ -116,7 +116,7 @@ export default class Main extends Component {
                       {label}
                     </label>
                     <div>
-                      {content.name === "message" ? (
+                      {name === "message" ? (
                         <textarea type="text" name={name} onChange={this.handleInput} />
                       ) : (
                         <input type="text" name={name} onChange={this.handleInput} />
