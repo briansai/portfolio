@@ -15,6 +15,7 @@ export default class Main extends Component {
       subject: '',
       email: '',
       message: '',
+      errorMessage: '',
     }
   }
 
@@ -45,8 +46,16 @@ export default class Main extends Component {
     const { firstName, lastName, email, subject, message } = this.state;
     const { handleSubmit } = this.props;
 
-    handleSubmit({ firstName, lastName, email, subject, message });
-    this.setState({ formSubmitted: true });
+    if (firstName && lastName && email && subject && message) {
+      handleSubmit({ firstName, lastName, email, subject, message });
+      this.setState({
+        formSubmitted: true,
+        errorMessage: '',
+      });  
+    } else {
+      this.setState({ errorMessage: '* Please fill in all fields' });
+    }
+
     e.preventDefault();
   }
 
@@ -95,22 +104,28 @@ export default class Main extends Component {
       return (
         <Modal isOpen={modalOpen} onRequestClose={this.onClose} shouldCloseOnOverlayClick={false} style={customStyles}>
           <form className="modal">
-            {formContent.map(content => (
-              <div className="modalCategory">
-                <Fragment>
-                  <label>
-                    {content.label}
-                  </label>
-                  <div>
-                    {content.name === "message" ? (
-                      <textarea type="text" name={content.name} onChange={this.handleInput} />
-                    ) : (
-                      <input type="text" name={content.name} onChange={this.handleInput} />
-                    )}
-                  </div>
-                </Fragment>
-              </div>
-            ))}
+            <div className="error-message">
+              {this.state.errorMessage}
+            </div>
+            {formContent.map(content => {
+              const { label, name } = content;
+              return (
+                <div className="modalCategory">
+                  <Fragment>
+                    <label>
+                      {label}
+                    </label>
+                    <div>
+                      {content.name === "message" ? (
+                        <textarea type="text" name={name} onChange={this.handleInput} />
+                      ) : (
+                        <input type="text" name={name} onChange={this.handleInput} />
+                      )}
+                    </div>
+                  </Fragment>
+                </div> 
+              )
+            })}
             <div className="buttonContainer">
               <button onClick={this.onClose}>Cancel</button>
               <button onClick={this.onSubmit}>Submit</button>
