@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001; 
@@ -18,7 +19,7 @@ AWS.config.update({
 });
 
 // Create S3 service object
-const s3 = new AWS.S3({aapiVersion: '2006-03-01'});
+const s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
 // Create the parameters for calling listObjects
 var bucketParams = {
@@ -41,10 +42,15 @@ app.post('/email', (req,res) => {
   const { firstName, lastName, email, subject, message } = req.body;
   const transporter = nodemailer.createTransport({
     service: 'gmail',
+    secure: true,
     auth: {
-      user: '',
-      pass: ''
-    }
+      type: 'OAuth2',
+      user: 'briansai.portfolio@gmail.com',
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken: process.env.ACCESS_TOKEN,
+    },
   })
   const mailOptions = {
     from: email,
