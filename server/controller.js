@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
 const nodemailer = require('nodemailer');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001; 
