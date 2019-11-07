@@ -299,7 +299,7 @@ export default class Main extends Component {
           <div className="main-categories">
             {categories.map(category => {
               const { item } = category;
-              const section = item !== 'Resume' ? (
+              return (
                 <Fragment>
                   {item !== 'Intro' ? (
                     <div className="category-header" id={item}>
@@ -312,12 +312,6 @@ export default class Main extends Component {
                     {this.renderDescription(category)}
                   </div>
                 </Fragment>
-              ) : (
-                null
-              )
-
-              return (
-                section
               )
             })}
           </div>

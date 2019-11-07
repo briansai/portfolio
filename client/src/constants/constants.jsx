@@ -87,8 +87,4 @@ export let categories = [
       }
     ],
   },
-  { item: 'Resume',
-    icon: 'list_alt',
-    information: [],
-  }
 ];
