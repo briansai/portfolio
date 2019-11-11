@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
 const nodemailer = require('nodemailer');
+const model = require('./model.js');
 require('dotenv').config();
 
 const app = express();
@@ -60,14 +61,13 @@ app.post('/email', (req,res) => {
   }
 
   transporter.sendMail(mailOptions, (err, info) => {
-    if(err)
-      throw new Error(err);
-    else
-      res.json(info);
+    if(err) throw new Error(err);
+
+    model.create({ firstName, lastName, email, subject, message });
+    return res.json(info);
  });
 })
 
 app.listen(PORT, () => {
-  // eslint-disable-next-line
   console.log('Listening to port:', PORT);
 });
