@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const AWS = require('aws-sdk');
 const nodemailer = require('nodemailer');
-const model = require('./model.js');
 require('dotenv').config();
 
 const app = express();
@@ -40,7 +39,7 @@ app.get('/images', async (req, res) => {
 });
 
 app.post('/email', (req,res) => {
-  const { firstName, lastName, email, subject, message } = req.body;
+  const { name, email, message } = req.body;
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: true,
@@ -56,14 +55,11 @@ app.post('/email', (req,res) => {
   const mailOptions = {
     from: email,
     to: 'brianwsai@gmail.com',
-    subject,
-    text: `Name: ${firstName} ${lastName} \nFrom: ${email} \nMessage: \n${message}`,
+    text: `Name: ${name} \nFrom: ${email} \nMessage: \n${message}`,
   }
 
   transporter.sendMail(mailOptions, (err, info) => {
     if(err) throw new Error(err);
-
-    model.create({ firstName, lastName, email, subject, message });
     return res.json(info);
  });
 })

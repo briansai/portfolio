@@ -2,41 +2,7 @@ a {
   color: inherit; }
 
 .modalClose {
-  float: right; }
-
-.modalClose:hover {
-  cursor: pointer; }
-
-.modal {
-  margin: 30px; }
-  .modal .error-message {
-    color: red; }
-  .modal .modalCategory {
-    margin: 20px 0; }
-    .modal .modalCategory input:-webkit-autofill,
-    .modal .modalCategory input:-webkit-autofill:hover,
-    .modal .modalCategory input:-webkit-autofill:focus,
-    .modal .modalCategory input:-webkit-autofill:active {
-      transition: all 5000s ease-in-out 0s;
-      transition-property: background-color, color; }
-    .modal .modalCategory input {
-      padding: 7px;
-      width: 95%;
-      height: 20px;
-      border: solid #B8B8B8 1px;
-      outline: none; }
-    .modal .modalCategory textarea {
-      padding: 7px;
-      width: 95%;
-      height: 150px;
-      border: solid #B8B8B8 1px;
-      outline: none; }
-  .modal .buttonContainer {
-    margin-top: -15px;
-    float: right; }
-    .modal .buttonContainer button {
-      margin-right: 10px;
-      border: solid #B8B8B8 1px; }
+  direction: rtl; }
 
 .main-container {
   margin-left: 15%; }
@@ -46,31 +12,35 @@ a {
     height: 100vh;
     position: relative; }
   .main-container .main-categories .category-header {
+    font-family: Helvetica;
     height: 80px;
     font-size: 2.5em;
     padding-left: 5%;
     padding-top: 3%;
     background-color: #cccccc; }
   .main-container .main-categories .experience {
-    padding: 0 10%; }
+    padding: 0 5%;
+    display: flex; }
     .main-container .main-categories .experience .small-card-container {
       padding: 0 2%;
       width: 90%;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       transition: 0.2s;
       background-color: white;
-      margin: 50px 20px; }
+      margin: 50px; }
       .main-container .main-categories .experience .small-card-container .card-description {
         height: 50px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.4);
         padding: 10px 10px 10px 0;
-        margin: 0 40px 0 40px;
+        margin: 0 20px 0 20px;
         font-size: 1.5em;
         display: flex;
         align-items: flex-end;
         justify-content: space-between; }
         .main-container .main-categories .experience .small-card-container .card-description .title {
-          font-size: 1em; }
+          font-size: 0.8em; }
+      .main-container .main-categories .experience .small-card-container .company {
+        text-align: center; }
       .main-container .main-categories .experience .small-card-container .card-info {
         padding: 20px 20px 20px 60px;
         line-height: 1.5; }
@@ -91,13 +61,13 @@ a {
         height: 50px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.4);
         padding: 10px 10px 10px 0;
-        margin: 0 40px 0 40px;
+        margin: 0 20px 0 20px;
         font-size: 1.5em;
         display: flex;
         align-items: flex-end;
         justify-content: space-between; }
         .main-container .main-categories .category-card-container .category-card .card-description .title {
-          font-size: 1em; }
+          font-size: 0.8em; }
       .main-container .main-categories .category-card-container .category-card .in-progress {
         text-align: center; }
       .main-container .main-categories .category-card-container .category-card .card-skills {
@@ -113,28 +83,51 @@ a {
         padding: 20px 40px 40px 60px; }
         .main-container .main-categories .category-card-container .category-card .card-info .card-item {
           line-height: 1.5; }
-      .main-container .main-categories .category-card-container .category-card .contact-description {
-        font-size: 2.5rem; }
-      .main-container .main-categories .category-card-container .category-card .contact-info {
-        text-align: center; }
-        .main-container .main-categories .category-card-container .category-card .contact-info .contact-text {
-          padding-top: 20px;
-          font-size: 1.5rem; }
-        .main-container .main-categories .category-card-container .category-card .contact-info .contact-item {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-          transition: 0.2s;
-          background-color: white;
-          width: 136px;
-          margin: 30px;
-          padding: 40px;
-          display: inline-block;
-          text-align: center;
-          font-size: 36px;
-          position: relative;
-          top: 0;
-          transition: top ease 0.2s; }
-        .main-container .main-categories .category-card-container .category-card .contact-info .contact-item:hover {
-          top: -20px; }
+      .main-container .main-categories .category-card-container .category-card .contact {
+        display: flex; }
+        .main-container .main-categories .category-card-container .category-card .contact .email {
+          margin: 4% 9%;
+          width: 50%; }
+          .main-container .main-categories .category-card-container .category-card .contact .email .error-message {
+            color: red; }
+          .main-container .main-categories .category-card-container .category-card .contact .email .form-category {
+            width: 100%;
+            margin-bottom: 15px; }
+          .main-container .main-categories .category-card-container .category-card .contact .email input {
+            padding: 7px;
+            width: 90%;
+            height: 20px;
+            border: solid #B8B8B8 1px;
+            outline: none;
+            border-radius: 5px; }
+          .main-container .main-categories .category-card-container .category-card .contact .email textarea {
+            padding: 7px;
+            width: 90%;
+            height: 150px;
+            border: solid #B8B8B8 1px;
+            outline: none;
+            border-radius: 5px;
+            resize: none; }
+          .main-container .main-categories .category-card-container .category-card .contact .email .buttonContainer {
+            float: right;
+            padding-right: 30px; }
+            .main-container .main-categories .category-card-container .category-card .contact .email .buttonContainer button {
+              border: solid #B8B8B8 1px; }
+        .main-container .main-categories .category-card-container .category-card .contact .contact-items {
+          width: 50%;
+          margin: 12% 0;
+          padding-top: 1%;
+          padding-left: 10%;
+          border-left: solid black 1px; }
+          .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item {
+            margin: 15px 0;
+            font-size: 2rem;
+            top: 0; }
+            .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item img {
+              transition: 0.5s; }
+          .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover img {
+            transition-duration: 0.5s;
+            transform: rotate(45deg); }
     .main-container .main-categories .category-card-container .category-card:hover {
       box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.4); }
 
@@ -183,7 +176,7 @@ a:visited {
   color: black; }
 
 .app {
-  font-family: sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   display: block;
   position: relative;
   margin: 0 auto;

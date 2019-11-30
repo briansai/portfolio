@@ -9,78 +9,38 @@
   background-color: white;
 }
 
-@mixin card-description ($category) {
+@mixin card-description {
   .card-description {
     height: 50px;
     border-bottom: 2px solid rgba(0,0,0,0.4);
     padding: 10px 10px 10px 0;
-    margin: 0 40px 0 40px;
+    margin: 0 20px 0 20px;
     font-size: 1.5em;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
 
     .title {
-      font-size: 1em;
+      font-size: 0.8em;
     }
   }
+}
+
+@mixin text ($text) {
+  padding: 7px;
+  width: 90%;
+  height: ($text);
+  border: solid #B8B8B8 1px;
+  outline: none;
+  border-radius: 5px;
 }
 
 a {
   color: inherit;
 }
 
-@mixin text ($text) {
-  padding: 7px;
-  width: 95%;
-  height: ($text);
-  border: solid #B8B8B8 1px;
-  outline: none;
-}
-
 .modalClose {
-  float: right;
-}
-
-.modalClose:hover {
-  cursor: pointer;
-}
-
-.modal {
-  margin: 30px;
-
-  .error-message {
-    color: red;
-  }
-
-  .modalCategory {
-    margin: 20px 0;
-
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-      transition: all 5000s ease-in-out 0s;
-      transition-property: background-color, color;
-    }
-    input {
-      @include text(20px);
-    }
-    
-    textarea {
-      @include text(150px);
-    }
-  }
-
-  .buttonContainer {
-    margin-top: -15px;
-    float: right;
-
-    button {
-      margin-right: 10px;
-      border: solid #B8B8B8 1px;
-    }
-  }
+  direction: rtl;
 }
 
 .main-container {
@@ -95,6 +55,7 @@ a {
     }
 
     .category-header {
+      font-family: Helvetica;
       height: 80px;
       font-size: 2.5em;
       padding-left: 5%;
@@ -103,19 +64,24 @@ a {
     }
 
     .experience {
-      padding: 0 10%;
-  
+      padding: 0 5%;
+      display: flex;
+
       .small-card-container {  
         @include card(90%, 2%);
         @include card-shadow;
-        @include card-description(experience);
-        
+        @include card-description;
+
+        .company {
+          text-align: center;
+        }
+
         .card-info {
           padding: 20px 20px 20px 60px;
           line-height: 1.5;
         }
         
-        margin: 50px 20px;
+        margin: 50px;
       }  
     }
 
@@ -131,7 +97,7 @@ a {
 
       .category-card {
         @include card-shadow;
-        @include card-description(category);
+        @include card-description;
 
         .in-progress {
           text-align: center;
@@ -157,36 +123,68 @@ a {
             line-height: 1.5;
           }
         }
-        
-        .contact-description {
-          font-size: 2.5rem;
-        }
 
-        .contact-info {
-          text-align: center;
+        .contact {
+          display: flex;
 
-          .contact-text {
-            padding-top: 20px;
-            font-size: 1.5rem;
-          }
+          .email {
+            margin: 4% 9%;
+            width: 50%;
 
-          .contact-item {
-            @include card-shadow;
-            width: 136px;
-            margin: 30px;
-            padding: 40px;
-            display: inline-block;
-            text-align: center;
-            font-size: 36px;
-            position: relative;
-            top: 0;
-            transition: top ease 0.2s;
-          }
+            .error-message {
+              color: red;
+            }
+
+            .form-category {
+              width: 100%;
+              margin-bottom: 15px;
+            }
           
-          .contact-item:hover {
-            top: -20px;
+            input {
+              @include text(20px);
+            }
+            
+            textarea {
+              @include text(150px);
+              resize: none;
+            }
+          
+            .buttonContainer {
+              float: right;
+              padding-right: 30px;
+            
+              button {
+                border: solid #B8B8B8 1px;
+              }
+            }
+          }
+
+          .contact-items {
+            width: 50%;
+            margin: 12% 0;
+            padding-top: 1%;
+            padding-left: 10%;
+            border-left: solid black 1px; 
+
+            .contact-item {
+              margin: 15px 0;
+              font-size: 2rem;
+              top: 0;
+
+              img {
+                transition: 0.5s;
+              }
+            }
+            
+            .contact-item:hover {
+              img {
+                transition-duration: 0.5s;
+                transform: rotate(45deg);
+              }
+            }
           }
         }
+
         margin: 50px 0;
       }
 

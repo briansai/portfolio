@@ -14,25 +14,24 @@ export let categories = [
         logo: '',
         text: 'tubi',
         company: 'Tubi',
-        title: 'Tech Ops Engineer',
+        title: 'Software Engineer',
         experiences: [
-          'Collaborated with a team of four to streamline the company’s content pipeline for the operations team',
-          'Worked interdepartmentally to deliver the best features and products for end users',
-          'Debugged and contributed to features on the CMSUI to create a more user-friendly UI for users and streamline the workflow',
-          'Created, maintained, and automated APIs and other tools for more seamless data retrieval',
+          'Worked with other departments to streamline the company’s data pipeline',
+          'Debugged and designed features on the CMSUI to improve workflow productivity',
+          'Created, improved, and automated APIs and other tools for seamless data manipulation',
+          'Triaged on-call issues for the company’s content delivery system',
+          'Worked closely with managers and business leaders to prioritize projects and tasks for the company’s roadmap',
         ],
       },
       {
         logo: '',
         text: 'mcmillan',
-        company: 'McMillan Electric',
+        company: 'McMillan',
         title: 'Project Engineer',
         experiences: [
-          'Contributed to the acquisition of the electrical contract for Facebook worth $9 million',
-          'Acquired the electrical contract for LEK Consulting worth $450,000',
-          'Maintained relationships with general contractors and subcontractors for prospective business',
-          'Managed projects in a high traffic environment and determined budget outcomes by calculating the cost of necessary manpower and material prior to final report delivery ',
-          'Surveyed locations of prospective contracts and proposed a bid with an estimated cost for the projects '
+          'Acquired notable contracts such as the electrical contract for Facebook worth $9 million and LEK Consulting worth $450,000',
+          'Maintained relationships with general contractors and subcontractors for prospective business ',
+          'Managed projects in a high traffic environment and determined budget outcomes by calculating the cost of necessary manpower and material prior to final report delivery',
         ],
       }
     ],
@@ -69,12 +68,8 @@ export let categories = [
   },
   { item: 'Contact',
     icon: 'mail_outline',
-    text: 'I\'d love to connect with you.  Let\'s chat and talk code.',
+    text: 'Lets connect',
     information: [
-      {
-        text: 'email',
-        icon: '',
-      },
       {
         text: 'linkedIn',
         icon: '',

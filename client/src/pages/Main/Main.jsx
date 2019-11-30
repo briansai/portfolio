@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
+import * as EmailValidator from 'email-validator';
 import { categories } from '../../constants/constants.jsx';
 import './Main.scss';
 
@@ -10,9 +11,7 @@ export default class Main extends Component {
     this.state = {
       modalOpen: false,
       formSubmitted: false,
-      firstName: '',
-      lastName: '',
-      subject: '',
+      name: '',
       email: '',
       message: '',
       errorMessage: '',
@@ -29,6 +28,10 @@ export default class Main extends Component {
     this.setState({
       modalOpen: false,
       formSubmitted: false,
+      errorMessage: '',
+      name: '',
+      email: '',
+      message: '',
     });
   }
 
@@ -43,24 +46,33 @@ export default class Main extends Component {
   }
 
   onSubmit = e => {
-    const { firstName, lastName, email, subject, message } = this.state;
-    const { handleSubmit } = this.props;
-
-    if (firstName && lastName && email && subject && message) {
-      handleSubmit({ firstName, lastName, email, subject, message });
-      this.setState({
-        formSubmitted: true,
-        errorMessage: '',
-      });  
-    } else {
-      this.setState({ errorMessage: '* Please fill in all fields' });
-    }
-
     e.preventDefault();
+    const { name, email, message } = this.state;
+    const { handleSubmit } = this.props;
+    const validatedEmail = EmailValidator.validate(email);
+
+    if (validatedEmail) {
+      if (name && message) {
+        handleSubmit({ name, email, message });
+        this.setState({
+          formSubmitted: true,
+          modalOpen: true,
+        });  
+      } else {
+        this.setState({ errorMessage: '* Please fill in all fields' });
+      }
+    } else {
+      this.setState({ errorMessage: '* Email is not valid.  Please try again.' })
+    }
   }
 
-  createModal = () => {
-    const { modalOpen, formSubmitted } = this.state;
+  handleSubmit = e => {
+    e.preventDefault();
+    e.target.reset();
+  }
+
+  submitConfirm = () => {
+    const { modalOpen, email } = this.state;
     const customStyles = {
       overlay: {
         opacity: 3,
@@ -77,63 +89,6 @@ export default class Main extends Component {
         transform: 'translate(-50%, -50%)'
       }
     };
-    const formContent = [
-      {
-        label: 'First Name: ',
-        name: 'firstName',
-      },
-      {
-        label: 'Last Name: ',
-        name: 'lastName',
-      },
-      {
-        label: 'Email: ',
-        name: 'email',
-      },
-      {
-        label: 'Subject',
-        name: 'subject',
-      },
-      {
-        label: 'Message: ',
-        name: 'message',
-      }
-    ]
-
-    if (!formSubmitted) {
-      return (
-        <Modal isOpen={modalOpen} onRequestClose={this.onClose} shouldCloseOnOverlayClick={false} style={customStyles}>
-          <form className="modal">
-            <div className="error-message">
-              {this.state.errorMessage}
-            </div>
-            {formContent.map(content => {
-              const { label, name } = content;
-              return (
-                <div className="modalCategory">
-                  <Fragment>
-                    <label>
-                      {label}
-                    </label>
-                    <div>
-                      {name === "message" ? (
-                        <textarea type="text" name={name} onChange={this.handleInput} />
-                      ) : (
-                        <input type="text" name={name} onChange={this.handleInput} />
-                      )}
-                    </div>
-                  </Fragment>
-                </div> 
-              )
-            })}
-            <div className="buttonContainer">
-              <button onClick={this.onClose}>Cancel</button>
-              <button onClick={this.onSubmit}>Submit</button>
-            </div>
-          </form>
-        </Modal>
-      )
-    }
 
     return (
       <Modal isOpen={modalOpen} onRequestClose={this.onClose} style={customStyles}>
@@ -141,7 +96,7 @@ export default class Main extends Component {
           X
         </div>
         <div>
-          Thank you for reaching out!  Your message from <strong>{this.state.email}</strong> has been sent.  I will get back to you shortly. Have a great day.
+          Thank you for reaching out!  Your message from <strong>{email}</strong> has been sent.  I will get back to you shortly. Have a great day.
         </div>
       </Modal>
     )
@@ -149,7 +104,7 @@ export default class Main extends Component {
 
   renderDescription = category => {
     const { contact, experience, skills, construction } = this.props.images;
-    const {item, information, text } = category;
+    const {item, information } = category;
     if (item === 'Intro') {
       return (
         <div className="intro" />
@@ -167,17 +122,55 @@ export default class Main extends Component {
         </div>
       )
     } else if (item === 'Contact') {
+      const formContent = [
+        {
+          label: 'Name: ',
+          name: 'name',
+        },
+        {
+          label: 'Email: ',
+          name: 'email',
+        },
+        {
+          label: 'Message: ',
+          name: 'message',
+        }
+      ]
+
       return (
         <div className="category-card-container">
           <div className="category-card">
-            <div className="contact-info">
-              <div className="contact-text">
-                {text}
-              </div>
+            <div className="contact">
+              <form autocomplete="off" className="email" onSubmit={this.handlesubmit}>
+                <div className="error-message">
+                  {this.state.errorMessage}
+                </div>
+                {formContent.map(content => {
+                  const { label, name } = content;
+                  return (
+                    <div className="form-category">
+                      <Fragment>
+                        <label>
+                          {label}
+                        </label>
+                        <div>
+                          {name === "message" ? (
+                            <textarea type="text" name={name} onChange={this.handleInput} value={this.state.message}/>
+                          ) : (
+                            <input type="text" name={name} onChange={this.handleInput} value={this.state[name]} />
+                          )}
+                        </div>
+                      </Fragment>
+                    </div> 
+                  )
+                })}
+                <div className="buttonContainer">
+                  <button onClick={this.onSubmit}>Submit</button>
+                </div>
+              </form>
+              <div className="contact-items">
               {information.map(info=> {
                 const { text, link } = info;
-                const target = text === 'email' ? null : "_blank";
-                const emailClick = text === 'email' ? this.onOpen : null;
                 contact.forEach(image => {
                   const { Key, url } = image;
                   if (Key.includes(text)) {
@@ -185,18 +178,20 @@ export default class Main extends Component {
                   }
                 })
                 return (
-                  <span className="items">
-                    <a href={link} className="contact-item" target={target} onClick={emailClick}>
-                      <div>
-                        <img src={info.icon} width="110" height="96"/>
-                      </div>
-                      <div className="contact-name">
+                  <div className="contact-item">
+                    <a href={link} className="contact-item" target="_blank">
+                      <span>
+                        <img src={info.icon} width="32" height="32"/>
+                      </span>
+                      {' '}
+                      <span className="contact-name">
                         {this.capitalize(text)}
-                      </div>
+                      </span>
                     </a>
-                  </span>
+                  </div>
                 )
               })}
+            </div>
             </div>
           </div>
         </div>
@@ -279,7 +274,7 @@ export default class Main extends Component {
           })}
         </div>
       )
-    } 
+    }
 
     return (
       <div className="category-card-container">
@@ -303,8 +298,8 @@ export default class Main extends Component {
                 <Fragment>
                   {item !== 'Intro' ? (
                     <div className="category-header" id={item}>
-                    {item}
-                  </div>
+                      <strong>{item}</strong>
+                    </div>
                   ) : (
                     null
                   )}
@@ -316,7 +311,7 @@ export default class Main extends Component {
             })}
           </div>
         </div>
-        {this.createModal()}
+        {this.state.formSubmitted ? this.submitConfirm() : null}
       </Fragment>
     )
   }
