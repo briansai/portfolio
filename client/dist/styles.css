@@ -23,6 +23,7 @@ a {
     display: flex; }
     .main-container .main-categories .experience .small-card-container {
       padding: 0 2%;
+      margin: 0 10%;
       width: 90%;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       transition: 0.2s;
@@ -45,8 +46,9 @@ a {
         padding: 20px 20px 20px 60px;
         line-height: 1.5; }
   .main-container .main-categories .category-card-container {
-    padding: 0 5%;
-    width: 90%; }
+    padding: 0 10px;
+    margin: 0 10%;
+    width: 80%; }
     .main-container .main-categories .category-card-container .about-header {
       padding-left: 20px;
       margin: 50px;

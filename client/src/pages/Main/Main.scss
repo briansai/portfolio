@@ -1,5 +1,6 @@
 @mixin card ($width, $padding-horizontal) {
   padding: 0 $padding-horizontal;
+  margin: 0 10%;
   width: $width;
 }
 
@@ -86,7 +87,7 @@ a {
     }
 
     .category-card-container {
-      @include card(90%, 5%);
+      @include card(80%, 10px);
 
       .about-header {
         padding-left: 20px;
