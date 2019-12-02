@@ -9,7 +9,7 @@ export default class Nav extends Component {
   }
 
   handleScroll = el => {
-    scrollToElement(el, { duration: 1500 });
+    scrollToElement(el, { duration: 500 });
   }
 
   render () {

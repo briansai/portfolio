@@ -39,7 +39,7 @@ app.get('/images', async (req, res) => {
 });
 
 app.post('/email', (req,res) => {
-  const { name, email, message } = req.body;
+  const { name, email, subject, message } = req.body;
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: true,
@@ -55,6 +55,7 @@ app.post('/email', (req,res) => {
   const mailOptions = {
     from: email,
     to: 'brianwsai@gmail.com',
+    subject,
     text: `Name: ${name} \nFrom: ${email} \nMessage: \n${message}`,
   }
 

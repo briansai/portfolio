@@ -14,7 +14,7 @@
     height: 50px;
     border-bottom: 2px solid rgba(0,0,0,0.4);
     padding: 10px 10px 10px 0;
-    margin: 0 20px 0 20px;
+    margin: 0 50px 0 50px;
     font-size: 1.5em;
     display: flex;
     align-items: flex-end;
@@ -55,7 +55,7 @@ a {
     }
 
     .category-header {
-      font-family: Helvetica;
+      font-family: sans-serif;
       height: 80px;
       font-size: 2.5em;
       padding-left: 5%;
@@ -162,8 +162,8 @@ a {
           .contact-items {
             width: 50%;
             margin: 12% 0;
-            padding-top: 1%;
-            padding-left: 10%;
+            padding-top: 4%;
+            padding-left: 12%;
             border-left: solid black 1px; 
 
             .contact-item {
@@ -186,10 +186,6 @@ a {
         }
 
         margin: 50px 0;
-      }
-
-      .category-card:hover {
-        box-shadow: 0 8px 20px 0 rgba(0,0,0,0.4);
       }
     }
   }

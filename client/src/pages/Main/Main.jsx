@@ -13,6 +13,7 @@ export default class Main extends Component {
       formSubmitted: false,
       name: '',
       email: '',
+      subject: '',
       message: '',
       errorMessage: '',
     }
@@ -31,6 +32,7 @@ export default class Main extends Component {
       errorMessage: '',
       name: '',
       email: '',
+      subject: '',
       message: '',
     });
   }
@@ -47,13 +49,13 @@ export default class Main extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, email, message } = this.state;
+    const { name, email, subject, message } = this.state;
     const { handleSubmit } = this.props;
     const validatedEmail = EmailValidator.validate(email);
 
     if (validatedEmail) {
       if (name && message) {
-        handleSubmit({ name, email, message });
+        handleSubmit({ name, email, subject, message });
         this.setState({
           formSubmitted: true,
           modalOpen: true,
@@ -130,6 +132,10 @@ export default class Main extends Component {
         {
           label: 'Email: ',
           name: 'email',
+        },
+        {
+          label: 'Subject: ',
+          name: 'subject',
         },
         {
           label: 'Message: ',
