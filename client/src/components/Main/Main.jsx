@@ -183,17 +183,19 @@ export default class Main extends Component {
                   }
                 })
                 return (
-                  <div className="contact-item">
-                    <a href={link} className="contact-item" target="_blank">
-                      <span>
-                        <img src={info.icon} width="32" height="32"/>
-                      </span>
-                      {' '}
-                      <span className="contact-name">
-                        {capitalize(text)}
-                      </span>
+                  // <div className="contact-item">
+                    <a href={link} target="_blank">
+                      <div className="contact-item">
+                        <span>
+                          <img src={info.icon} width="32" height="32"/>
+                        </span>
+                        {' '}
+                        <span className="contact-name">
+                          {capitalize(text)}
+                        </span>
+                      </div>
                     </a>
-                  </div>
+                  // </div>
                 )
               })}
             </div>

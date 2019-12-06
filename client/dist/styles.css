@@ -123,13 +123,19 @@ a {
           border-left: solid black 1px; }
           .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item {
             margin: 15px 0;
+            padding: 15px;
+            width: 50%;
+            border: solid black 1.5px;
+            border-radius: 20px;
             font-size: 2rem;
             top: 0; }
             .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item img {
               transition: 0.5s; }
-          .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover img {
-            transition-duration: 0.5s;
-            transform: rotate(45deg); }
+          .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover {
+            background-color: #cccccc; }
+            .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover img {
+              transition-duration: 0.5s;
+              transform: rotate(45deg); }
 
 .nav-container {
   height: 100%;
