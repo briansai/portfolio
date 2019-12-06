@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
 import * as EmailValidator from 'email-validator';
-import { categories } from '../../constants/constants.jsx';
-import { capitalize } from '../../constants/functions.jsx';
+import { categories, capitalize } from '../../constants/index.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -52,18 +51,18 @@ export default class Main extends Component {
     const { handleSubmit } = this.props;
     const validatedEmail = EmailValidator.validate(email);
 
-    if (validatedEmail) {
-      if (name && message) {
+    if (name && email && subject && message) {
+      if (!validatedEmail) {
+        this.setState({ errorMessage: '* Email is not valid.  Please try again.' })
+      } else {
         handleSubmit({ name, email, subject, message });
         this.setState({
           formSubmitted: true,
           modalOpen: true,
         });  
-      } else {
-        this.setState({ errorMessage: '* Please fill in all fields' });
       }
     } else {
-      this.setState({ errorMessage: '* Email is not valid.  Please try again.' })
+      this.setState({ errorMessage: '* Please fill in all fields' });
     }
   }
 
@@ -183,19 +182,17 @@ export default class Main extends Component {
                   }
                 })
                 return (
-                  // <div className="contact-item">
-                    <a href={link} target="_blank">
-                      <div className="contact-item">
-                        <span>
-                          <img src={info.icon} width="32" height="32"/>
-                        </span>
-                        {' '}
-                        <span className="contact-name">
-                          {capitalize(text)}
-                        </span>
-                      </div>
-                    </a>
-                  // </div>
+                  <a href={link} target="_blank">
+                    <div className="contact-item">
+                      <span>
+                        <img src={info.icon} width="32" height="32"/>
+                      </span>
+                      {' '}
+                      <span className="contact-name">
+                        {capitalize(text)}
+                      </span>
+                    </div>
+                  </a>
                 )
               })}
             </div>

@@ -132,7 +132,8 @@ a {
             .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item img {
               transition: 0.5s; }
           .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover {
-            background-color: #cccccc; }
+            background-color: #cccccc;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
             .main-container .main-categories .category-card-container .category-card .contact .contact-items .contact-item:hover img {
               transition-duration: 0.5s;
               transform: rotate(45deg); }
@@ -176,6 +177,7 @@ a {
     .nav-container .category-container .dropdown {
       position: fixed;
       background-color: #f1f1f1;
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.6);
       z-index: 1;
       font-size: 1em; }
       .nav-container .category-container .dropdown .skill {
