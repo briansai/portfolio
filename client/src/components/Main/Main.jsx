@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
 import * as EmailValidator from 'email-validator';
 import { categories } from '../../constants/constants.jsx';
+import { capitalize } from '../../constants/functions.jsx';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -18,8 +19,6 @@ export default class Main extends Component {
       errorMessage: '',
     }
   }
-
-  capitalize = word => word[0].toUpperCase() + word.slice(1);
 
   onOpen = () => {
     this.setState({ modalOpen: true });
@@ -191,7 +190,7 @@ export default class Main extends Component {
                       </span>
                       {' '}
                       <span className="contact-name">
-                        {this.capitalize(text)}
+                        {capitalize(text)}
                       </span>
                     </a>
                   </div>
@@ -255,11 +254,15 @@ export default class Main extends Component {
       return (
         <div>
           {skillEntries.map(values => {
-            const categoryName = values[0] === 'packageManager' ? 'Package Manager' : this.capitalize(values[0]);
+            const technology = values[0]
+            const categoryName = technology === 'packageManager' ? 'Package Manager' : capitalize(values[0]);
             return (
               <div className="category-card-container">
                 <div className="category-card">
-                  <div className="card-description">
+                  <div
+                    id={technology}
+                    className="card-description"
+                  >
                     {categoryName}
                   </div>
                   <span className="card-skills">

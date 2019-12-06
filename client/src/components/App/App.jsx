@@ -24,6 +24,7 @@ export default class App extends Component {
           intro: [],
           skills: [],
           construction: [],
+          education: [],
         };
         res.data.forEach((image, index) => {
           const { Key } = image;

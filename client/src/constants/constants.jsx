@@ -54,12 +54,14 @@ export let categories = [
     information: [
       {
         institute: 'San Francisco State University',
+        abbreviation: 'sfsu',
         year: '2016',
         degree: 'Bachelor\'s of Science',
         logo: '',
       },
       {
         institute: 'Hack Reactor',
+        abbreviation: 'hr',
         year: '2018',
         degree: 'Full Stack Developer',
         logo: '',
