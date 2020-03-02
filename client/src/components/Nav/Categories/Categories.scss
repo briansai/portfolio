@@ -1,0 +1,47 @@
+.category-container {
+  display: flex;
+
+  .nav-category {
+    width: 100%;
+    line-height: 1.5;
+    padding: 20px 8px 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    position: relative;
+
+    .material-icons {
+      font-size: 24px;
+    }
+
+    .nav-description {
+      padding-left: 10px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .dropdown {
+    position: fixed;
+    background-color: #f1f1f1;
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.6);
+    z-index: 1;
+    font-size: 1em;
+
+    .skill {
+      padding: 15px;
+      line-height: 1.5;
+    }
+
+    .skill-container:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}
+ 
+.category-container:hover {
+  padding-left: 10px;
+  border-left: 4px solid black;
+  background-color: #cccccc;
+  cursor: pointer;
+}

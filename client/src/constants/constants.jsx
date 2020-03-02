@@ -5,7 +5,11 @@ export let categories = [
   },
   { item: 'About',
     icon: 'person',
-    information: [],
+    information: [
+      {
+        info: 'Live to learn and learn to live.  Take every new experience and add it to your journey.  Think bigger than the game.'
+      }
+    ],
   },
   { item: 'Experience',
     icon: 'work',
@@ -16,11 +20,13 @@ export let categories = [
         company: 'Tubi',
         title: 'Software Engineer',
         experiences: [
-          'Worked with other departments to streamline the company’s data pipeline',
+          'Used Reactstrap and SASS to design user interface features on the Content Management System User Interface(CMSUI)',
+          'Created internal tools (ie. drive-scan file uploads, filters, csv/csv parse files, image uploads, etc) for the operations team to increase automation and efficiency.',
           'Debugged and designed features on the CMSUI to improve workflow productivity',
           'Created, improved, and automated APIs and other tools for seamless data manipulation',
           'Triaged on-call issues for the company’s content delivery system',
           'Worked closely with managers and business leaders to prioritize projects and tasks for the company’s roadmap',
+          'Worked with other departments to streamline the company’s data pipeline,'
         ],
       },
       {

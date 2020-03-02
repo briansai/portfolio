@@ -15,7 +15,7 @@
     height: 50px;
     border-bottom: 2px solid rgba(0,0,0,0.4);
     padding: 10px 10px 10px 0;
-    margin: 0 50px 0 50px;
+    margin: 10px 50px;
     font-size: 1.5em;
     display: flex;
     align-items: flex-end;
@@ -51,7 +51,10 @@ a {
     .intro {
       background: url('../../images/intro.png') top center/cover no-repeat;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
+      max-height: 100vh;
+      left: 0;
+      top: 0;
       position: relative;
     }
 
@@ -64,7 +67,7 @@ a {
       background-color: #cccccc;
     }
 
-    .experience {
+    .small-card {
       padding: 0 5%;
       display: flex;
 
@@ -78,11 +81,11 @@ a {
         }
 
         .card-info {
-          padding: 20px 20px 20px 60px;
+          padding: 5px 20px 10px 60px;
           line-height: 1.5;
         }
         
-        margin: 50px;
+        margin: 50px 30px;
       }  
     }
 
@@ -109,7 +112,7 @@ a {
           display: grid;
           grid-template-columns: repeat(auto-fill, 160px)  ;
           grid-gap: 10px;
-          padding: 20px 10px;
+          padding: 20px 20px;
 
           .skill-item {
             padding-bottom: 20px;
@@ -130,7 +133,7 @@ a {
 
           .email {
             margin: 4% 8%;
-            width: 50%;
+            width: 35%;
 
             .error-message {
               color: red;
@@ -161,7 +164,6 @@ a {
           }
 
           .contact-items {
-            width: 50%;
             margin: 12% 0;
             padding-top: 4%;
             padding-left: 12%;
@@ -170,10 +172,10 @@ a {
             .contact-item {
               margin: 15px 0;
               padding: 15px;
-              width: 50%;
+              width: 100%;
               border: solid black 1.5px;
-              border-radius: 20px;
-              font-size: 2rem;
+              border-radius: 50px;
+              font-size: 1.5em;
               top: 0;
 
               img {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Name.scss';
 
 const Name = props => (
   <div className="name-container">
@@ -9,7 +10,7 @@ const Name = props => (
       Brian Sai
     </div>
     <div className="nav-occupation">
-      FullStack Developer
+      Software Engineer
     </div>
   </div>
 )

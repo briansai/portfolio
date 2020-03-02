@@ -105,6 +105,7 @@ export default class Main extends Component {
   renderDescription = category => {
     const { contact, experience, skills, construction } = this.props.images;
     const {item, information } = category;
+
     if (item === 'Intro') {
       return (
         <div className="intro" />
@@ -114,14 +115,58 @@ export default class Main extends Component {
         <div className="category-card-container">
           <div className="about-container">
             <div className="about-header">
-              Motivated, self-driven software engineer that has a strong passion to improve quality of life and experience with efficiency, affinity to find technical solutions to problems, and make an impact on people's lives as technology advances.
+              {information[0].info}
             </div>
             <div className="about-text">
             </div>
           </div>
         </div>
       )
-    } else if (item === 'Contact') {
+    } else if (item === 'Skills') {
+      if (!information.backend.length) {
+        skills.forEach(item => {
+          const { Key, url } = item;
+          const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
+          const image = Key.substring(Key.lastIndexOf('/') + 1);
+          const technology = image.substring(0, image.indexOf('.'));
+          information[skill].push({ url, technology })
+        })
+      }
+
+      const skillEntries = Object.entries(information);
+      return (
+        <div>
+          {skillEntries.map(values => {
+            const technology = values[0]
+            const categoryName = technology === 'packageManager' ? 'Package Manager' : capitalize(values[0]);
+            return (
+              <div className="category-card-container">
+                <div className="category-card">
+                  <div
+                    id={technology}
+                    className="card-description"
+                  >
+                    {categoryName}
+                  </div>
+                  <span className="card-skills">
+                    {values[1].map(tech => (
+                      <div className="skill-item">
+                        <div>
+                          <img src={tech.url} width="50" height="50"/>
+                        </div>
+                        <div>
+                          {tech.technology}
+                        </div>
+                      </div>
+                    ))}
+                  </span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )
+    }else if (item === 'Contact') {
       const formContent = [
         {
           label: 'Name: ',
@@ -202,7 +247,7 @@ export default class Main extends Component {
       )
     } else if (item === 'Experience') {
       return (
-        <div className="experience">
+        <div className="small-card">
           {information.map(info => {
             let { logo, company, title, experiences, text } = info;
             experience.forEach(exp => {
@@ -233,50 +278,6 @@ export default class Main extends Component {
                     </li>
                   ))}
                 </ul>
-              </div>
-            )
-          })}
-        </div>
-      )
-    } else if (item === 'Skills') {
-      if (!information.backend.length) {
-        skills.forEach(item => {
-          const { Key, url } = item;
-          const skill = Key.substring(Key.indexOf('/') + 1, Key.lastIndexOf('/'))
-          const image = Key.substring(Key.lastIndexOf('/') + 1);
-          const technology = image.substring(0, image.indexOf('.'));
-          information[skill].push({ url, technology })
-        })
-      }
-
-      const skillEntries = Object.entries(information);
-      return (
-        <div>
-          {skillEntries.map(values => {
-            const technology = values[0]
-            const categoryName = technology === 'packageManager' ? 'Package Manager' : capitalize(values[0]);
-            return (
-              <div className="category-card-container">
-                <div className="category-card">
-                  <div
-                    id={technology}
-                    className="card-description"
-                  >
-                    {categoryName}
-                  </div>
-                  <span className="card-skills">
-                    {values[1].map(tech => (
-                      <div className="skill-item">
-                        <div>
-                          <img src={tech.url} width="75" height="75"/>
-                        </div>
-                        <div>
-                          {tech.technology}
-                        </div>
-                      </div>
-                    ))}
-                  </span>
-                </div>
               </div>
             )
           })}

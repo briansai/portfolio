@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import scrollToElement from 'scroll-to-element';
 import { categories, capitalize } from '../../../constants/index.jsx';
+import './Categories.scss';
 
 
 export default class Categories extends Component {
